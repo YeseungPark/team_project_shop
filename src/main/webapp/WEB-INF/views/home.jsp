@@ -42,7 +42,7 @@
 </head>
 <body>
 
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="../include/header.jsp"></jsp:include>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
