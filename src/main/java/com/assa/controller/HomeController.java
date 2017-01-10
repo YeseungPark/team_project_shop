@@ -1,4 +1,4 @@
-package com.assa.web;
+package com.assa.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

@@ -71,9 +71,15 @@
 
 </style>
 
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="" />
+<title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <meta charset="UTF-8">
-
+</head>
+<body>
 
 <nav class="navbar navbar">
   <div class="container-fluid">
@@ -186,3 +192,6 @@
 		</div><!-- modal-dialog -->
 	</div><!-- modal -->	
 </div><!-- container -->
+
+</body>
+</html>
