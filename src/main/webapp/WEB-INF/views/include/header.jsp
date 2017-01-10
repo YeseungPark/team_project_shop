@@ -3,6 +3,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="" />
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<meta charset="UTF-8">
 <style>
 .jumbotron{
 	background-color:white;
@@ -70,14 +77,6 @@
 	}
 
 </style>
-
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="" />
-<title>Insert title here</title>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<meta charset="UTF-8">
 </head>
 <body>
 
