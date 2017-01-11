@@ -58,16 +58,13 @@
 	  <div class="input-group col-xs-3">
 	  	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 	    <input id="post_code" type="text" class="form-control input-lg" name="post_code" placeholder="우편번호">
-	  </div><div class="col-xs-6"></div>
+	  </div><div class="col-xs-6"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
-	  <div class="input-group col-xs-3">
+	  <div class="input-group col-xs-6">
 	    <input id="address1" type="text" class="form-control input-lg" name="address1" placeholder="주소">
-	  </div>
-	  <div class="input-group col-xs-3">
 	    <input id="address2" type="text" class="form-control input-lg" name="address2" placeholder="상세주소">
-	  </div>
-	  <div class="col-xs-3"></div>
+	  </div><div class="col-xs-3"></div>
 	  
 	</form>
 </div>
