@@ -13,8 +13,8 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@RequestMapping(value="/signUp",method=RequestMethod.GET)
-	public String singUpGET(){
-		logger.info("/member/signUp");
+	public String signUpGET(){
+		logger.info("================================================");
 		return "/member/LoginPage";
 	}
 }
