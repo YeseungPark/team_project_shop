@@ -23,27 +23,52 @@
 	</div>
 	
 	<form>
-	  <div class="col-xs-4"></div>
-	  <div class="input-group col-xs-4">
+	
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
 	    <input id="ID" type="text" class="form-control input-lg" name="ID" placeholder="아이디(이메일)">
-	  </div><div class="col-xs-4"></div><br/>
-	  <div class="input-group col-xs-4">
+	  </div><div class="col-xs-3"></div><br/>
+	  
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 	    <input id="password" type="password" class="form-control input-lg" name="password" placeholder="비밀번호">
-	  </div><br/>
-	  <div class="input-group col-xs-4">
+	  </div><div class="col-xs-3"></div><br/>
+	  
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-ok-circle"></i></span>
 	    <input id="passcheck" type="password" class="form-control input-lg" name="passcheck" placeholder="비밀번호 확인">
-	  </div><br/>
-	  <div class="input-group col-xs-4">
+	  </div><div class="col-xs-3"></div><br/>
+	  
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 	    <input id="nick" type="text" class="form-control input-lg" name="nick" placeholder="닉네임">
-	  </div><br/>
-	  <div class="input-group col-xs-4">
+	  </div><div class="col-xs-3"></div><br/>
+	  
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
 	    <input id="phone" type="text" class="form-control input-lg" name="phone" placeholder="전화번호">
-	  </div><br/>
+	  </div><div class="col-xs-3"></div><br/>
+	  
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-3">
+	  	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+	    <input id="post_code" type="text" class="form-control input-lg" name="post_code" placeholder="우편번호">
+	  </div><div class="col-xs-6"></div>
+	  
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-3">
+	    <input id="address1" type="text" class="form-control input-lg" name="address1" placeholder="주소">
+	  </div>
+	  <div class="input-group col-xs-3">
+	    <input id="address2" type="text" class="form-control input-lg" name="address2" placeholder="상세주소">
+	  </div>
+	  <div class="col-xs-3"></div>
+	  
 	</form>
 </div>
 </body>
