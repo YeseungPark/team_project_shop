@@ -58,9 +58,9 @@
 	  <div class="input-group col-xs-3">
 	  	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 	    <input id="post_code" type="text" class="form-control input-lg" name="post_code" placeholder="우편번호">
-	  </div><div class="col-xs-3">
-	  	<button type="button" class="btn btn-default btn-lg">우편번호 찾기</button>
-	  </div><div class="col-xs-3"></div>
+	  </div>
+	  <div class="col-xs-3"><button type="button" class="btn btn-default btn-lg">우편번호 찾기</button></div>
+	  <div class="col-xs-3"></div>
 	  
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
