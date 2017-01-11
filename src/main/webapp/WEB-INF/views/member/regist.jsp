@@ -23,25 +23,25 @@
 	</div>
 	
 	<form>
-	  <div class="input-group col-xs-4">
+	  <div class="input-group col-xs-5 text-center">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-	    <input id="ID" type="text" class="form-control" name="ID" placeholder="아이디(이메일)">
+	    <input id="ID" type="text" class="form-control input-lg" name="ID" placeholder="아이디(이메일)">
 	  </div><br/>
-	  <div class="input-group col-xs-4">
+	  <div class="input-group col-xs-5">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-	    <input id="password" type="password" class="form-control" name="password" placeholder="비밀번호">
+	    <input id="password" type="password" class="form-control input-lg" name="password" placeholder="비밀번호">
 	  </div><br/>
-	  <div class="input-group col-xs-4">
+	  <div class="input-group col-xs-5">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-ok-circle"></i></span>
-	    <input id="passcheck" type="password" class="form-control" name="passcheck" placeholder="비밀번호 확인">
+	    <input id="passcheck" type="password" class="form-control input-lg" name="passcheck" placeholder="비밀번호 확인">
 	  </div><br/>
-	  <div class="input-group col-xs-4">
+	  <div class="input-group col-xs-5">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-	    <input id="nick" type="text" class="form-control" name="nick" placeholder="닉네임">
+	    <input id="nick" type="text" class="form-control input-lg" name="nick" placeholder="닉네임">
 	  </div><br/>
-	  <div class="input-group col-xs-4">
+	  <div class="input-group col-xs-5">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-	    <input id="phone" type="text" class="form-control" name="phone" placeholder="전화번호">
+	    <input id="phone" type="text" class="form-control input-lg" name="phone" placeholder="전화번호">
 	  </div><br/>
 	</form>
 </div>
