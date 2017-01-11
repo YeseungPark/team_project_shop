@@ -4,10 +4,11 @@ package com.assa.controller;
 @RequestMapping("/member")
 public class MemberController {
 
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
-	
-	@ReqeustMapping(value="/signUp",method=RequestMethod.GET)
+	@RequestMapping(value="/signUp",method=RequestMethod.GET)
 	public String singUpGET(){
+		
 		return "/member/LoginPage";
 	}
 }
