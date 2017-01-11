@@ -121,9 +121,9 @@
 			</button>
 		</div>
     </li>
-    <li><a href="#">Page 1</a></li>
-    <li><a href="#">Page 2</a></li>
-    <li><a href="#">Page 3</a></li>
+    <li><a href="#">Best</a></li>
+    <li><a href="#">TOP</a></li>
+    <li><a href="#">OUTER</a></li>
   </ul>
 </nav>
 
