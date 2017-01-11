@@ -14,7 +14,7 @@ public class MemberController {
 
 	@RequestMapping(value="/signUp",method=RequestMethod.GET)
 	public String singUpGET(){
-		
+		logger.info("/member/signUp");
 		return "/member/LoginPage";
 	}
 }
