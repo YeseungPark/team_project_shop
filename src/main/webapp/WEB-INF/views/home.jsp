@@ -156,5 +156,11 @@
   </div>
 </div><br>
 
-
+<script>
+$(function(){
+	if(${registMsg == 'success'}){
+		alert("회원가입 성공!");
+	}
+})
+</script>
 

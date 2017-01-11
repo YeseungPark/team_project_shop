@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.assa.mapper.MemberVO">
+  	<insert id="regist">
+  		insert into 	member(
+  					ID,
+  					password,
+  					nick,
+  					phone,
+  					post_code,
+  					address1,
+  					address2
+  								
+  		)
+  		values(
+  					#{ID},
+  					#{password},
+  					#{nick},
+  					#{phone},
+  					#{post_code},
+  					#{address1},
+  					#{address2}
+  					
+  			
+  		)
+  
+  	
+  	</insert>
+  </mapper>
+  
