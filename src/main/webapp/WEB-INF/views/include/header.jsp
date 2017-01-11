@@ -104,7 +104,7 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-			<li><a href="MakeAccountView.acc"><span
+			<li><a href="/member/signUp"><span
 					class="glyphicon glyphicon-user"> SignUp</span></a></li>
 
 			<c:choose>
