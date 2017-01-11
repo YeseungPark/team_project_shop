@@ -97,9 +97,24 @@
         <li><a href="#">Projects</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
+      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
+			<li><a href="MakeAccountView.acc"><span
+					class="glyphicon glyphicon-user"> SignUp</span></a></li>
+
+			<c:choose>
+				<c:when test="${ID == null }">
+					<li><a href="#"><span class="glyphicon glyphicon-log-in"
+							id="myBtn"> Login</span></a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="#"><span class="glyphicon glyphicon-log-out"
+							id="myBtn2"> Logout</span></a></li>
+				</c:otherwise>
+			</c:choose>
+
+		</ul>
+		
     </div>
   </div>
 </nav>
