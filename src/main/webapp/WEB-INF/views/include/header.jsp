@@ -124,8 +124,8 @@
   </div>
 </nav>
 
-<jsp:include page="/member/LoginPage.jsp"></jsp:include>
-<jsp:include page="/member/LogoutPage.jsp"></jsp:include>
+<jsp:include page="../member/LoginPage.jsp"></jsp:include>
+<jsp:include page="../member/LogoutPage.jsp"></jsp:include>
 
 <div class="jumbotron">
   <h1>Assa Company</h1>      
