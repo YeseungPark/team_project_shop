@@ -9,6 +9,11 @@
 <link rel="stylesheet" href="" />
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
 <meta charset="UTF-8">
 <style>
 .jumbotron{
@@ -97,14 +102,30 @@
         <li><a href="#">Projects</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
+      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
+			<li><a href="/member/signUp"><span
+					class="glyphicon glyphicon-user"> SignUp</span></a></li>
+
+			<c:choose>
+				<c:when test="${ID == null }">
+					<li><a href="#"><span class="glyphicon glyphicon-log-in"
+							id="myBtn"> Login</span></a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="#"><span class="glyphicon glyphicon-log-out"
+							id="myBtn2"> Logout</span></a></li>
+				</c:otherwise>
+			</c:choose>
+
+		</ul>
+		
     </div>
   </div>
 </nav>
 
-
+<jsp:include page="../member/LoginPage.jsp"></jsp:include>
+<jsp:include page="../member/LogoutPage.jsp"></jsp:include>
 
 <div class="jumbotron">
   <h1>Assa Company</h1>      

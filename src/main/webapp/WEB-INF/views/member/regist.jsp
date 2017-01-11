@@ -11,46 +11,64 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="css/assa.css" />
-<script src="js/validation.js"></script>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div id="logo_regist">
-		<a href="#">아웃싸이더</a>
+<div class="container">
+	<div class="text-center">
+		<h3>Assa</h3>
 	</div>
 	
-	<form id="regist_form"><!-- method="post" action="registMember.mem" -->
-	<div class="regist">
-		<label for="ID"><i class="material-icons" style="font-size:25px;color:#9ec3ff;">email</i></label>
-		<input type="email" name="ID" id="ID" placeholder="아이디(이메일)"/><br/>
-		<p class="alam" id="id_alam"></p>
-	</div>
+	<form>
 	
-	<div class="regist">
-		<label for="password"><i class="material-icons" style="font-size:25px;color:#9ec3ff;">lock</i></label>
-		<input type="password" name="password" id="password" placeholder="비밀번호(영문, 숫자를 혼합하여 6~20자 이내)"/>
-		<p class="alam" id="password_alam"></p>
-	</div>
-	
-	<div class="regist">
-		<label for="passcheck"><i class="material-icons" style="font-size:25px;color:#9ec3ff;">lock_outline</i></label>
-		<input type="password" name="passcheck" id="passcheck" placeholder="비밀번호 확인"/>
-		<p class="alam" id="passcheck_alam"></p>
-	</div>
-	
-	<div class="regist">
-		<label for="nick"><i class="material-icons" style="font-size:25px;color:#9ec3ff;">person</i></label>
-		<input type="text" name="nick" id="nick" placeholder="별명(2~10자 특수문자 제외)"/>
-		<p class="alam" id="nick_alam"></p>
-	</div>
-	
-	<div class="regist">
-		<label for="phone"><i class="material-icons" style="font-size:25px;color:#9ec3ff;">stay_primary_portrait</i></label>
-		<input type="text" name="phone" id="phone" placeholder="휴대폰 번호"/>
-		<p class="alam" id="phone_alam"></p>
-	</div>
-	<div id="regist_button">
-		<button id="regist_member">회원가입</button>
-	</div>
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-6">
+	    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+	    <input id="ID" type="text" class="form-control input-lg" name="ID" placeholder="아이디(이메일)">
+	  </div><div class="col-xs-3"></div><br/>
+	  
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-6">
+	    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+	    <input id="password" type="password" class="form-control input-lg" name="password" placeholder="비밀번호">
+	  </div><div class="col-xs-3"></div><br/>
+	  
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-6">
+	    <span class="input-group-addon"><i class="glyphicon glyphicon-ok-circle"></i></span>
+	    <input id="passcheck" type="password" class="form-control input-lg" name="passcheck" placeholder="비밀번호 확인">
+	  </div><div class="col-xs-3"></div><br/>
+	  
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-6">
+	    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+	    <input id="nick" type="text" class="form-control input-lg" name="nick" placeholder="닉네임">
+	  </div><div class="col-xs-3"></div><br/>
+	  
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-6">
+	    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+	    <input id="phone" type="text" class="form-control input-lg" name="phone" placeholder="전화번호">
+	  </div><div class="col-xs-3"></div><br/>
+	  
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-3">
+	  	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+	    <input id="post_code" type="text" class="form-control input-lg" name="post_code" placeholder="우편번호">
+	  </div>
+	  <div class="col-xs-3"><button type="button" class="btn btn-default btn-lg">우편번호 찾기</button></div>
+	  <div class="col-xs-3"></div>
+	  
+	  <div class="col-xs-3"></div>
+	  <div class="input-group col-xs-6">
+	    <input id="address1" type="text" class="form-control input-lg" name="address1" placeholder="주소">
+	    <input id="address2" type="text" class="form-control input-lg" name="address2" placeholder="상세주소">
+	  </div><div class="col-xs-3"></div>
+	  
 	</form>
+</div>
 </body>
 </html>
