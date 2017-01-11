@@ -13,7 +13,7 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@RequestMapping(value="/signUp",method=RequestMethod.GET)
-	public String singUpGET(){
+	public String signUpGET(){
 		
 		return "/member/LoginPage";
 	}
