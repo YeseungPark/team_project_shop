@@ -1,10 +1,16 @@
 package com.assa.controller;
 
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.assa.domain.ProductVO;
+import com.assa.service.ProductService;
 
 /**
  * Handles requests for the application home page.
@@ -12,24 +18,36 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
-	
-	private static final Logger logger = 
-			LoggerFactory.getLogger(ProductController.class);
-	
-	@RequestMapping(value="/insert", method = RequestMethod.GET)
-	public String insertGET(){
-		
-		logger.info("product insert page °ªÀ» ¹Þ¾Æ¿Ô½À´Ï´Ù.");
-		
+
+	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
+
+	@Inject
+	private ProductService service;
+
+	@RequestMapping(value = "/insert", method = RequestMethod.GET)
+	public String insertGET() {
+
+		logger.info("product insert page ë“¤ì–´ê°‘ë‹ˆë‹¤..");
+
 		return "/product/product";
 	}
-	
-	@RequestMapping(value="/insert", method = RequestMethod.POST)
-	public String insertPOST(){
-		
-		logger.info("product insert ------ °ªÀ» º¸³× ¹ö·È´Ù");
-		
+
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	public String insertPOST(ProductVO vo, RedirectAttributes rttr) {
+
+		service.productInsert(vo);
+
+		rttr.addFlashAttribute("insertMsg", "success");
+
 		return "/product/productList";
 	}
-	
+
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public String listGET() {
+
+		logger.info("listë¡œ ë°›ì•˜ë„¤ìš”.");
+
+		return "/product/productList";
+	}
+
 }

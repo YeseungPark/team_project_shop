@@ -99,7 +99,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
+        <li><a href="/product/list">상품 목록</a></li>
         <li><a href="/product/insert">상품 등록</a></li>
       </ul>
       
