@@ -10,11 +10,6 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="css/assa.css" />
- <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
     function daumPostcode() {
@@ -62,14 +57,12 @@
 </script>
 </head>
 <body>
+<jsp:include page="../include/header.jsp"></jsp:include>
 <div class="container">
 	<div class="text-center">
-		<h3>Assa</h3>
+		<h3>Join</h3>
 	</div>
-	<jsp:include page="../include/header.jsp"></jsp:include>
-	<jsp:include page="mypage.jsp"></jsp:include>
-	
-	<form method="post" action="/member/regist">
+	<form method="post" action="/member/update">
 	
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
@@ -92,7 +85,7 @@
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-	    <input id="nick" type="text" class="form-control input-lg" name="nick" placeholder="닉네임"readonly>
+	    <input id="nick" type="text" class="form-control input-lg" name="nick" placeholder="닉네임" readonly>
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
@@ -116,9 +109,10 @@
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
-	  <button type="submit" class="btn btn-primary btn-lg col-xs-6">회원등록</button>
+	  <button type="submit" class="btn btn-primary btn-lg col-xs-6">회원수정</button>
 	
 	</form>
 </div>
+<jsp:include page="../include/footer.jsp"></jsp:include>
 </body>
 </html>

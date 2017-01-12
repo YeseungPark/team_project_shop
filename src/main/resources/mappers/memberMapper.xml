@@ -35,5 +35,15 @@
   		from      	member 
   		where 		ID=#{ID} and password=#{password}
   	</select>
+  	<update id="update" >
+  		update 		member
+  		set			password=#{password},
+  					phone=#{phone},
+  					post_code=#{post_code},
+  					address1=#{address1},
+  					address2=#{address2}
+  		where 		ID=#{ID}		
+  					
+  	</update>
   </mapper>
   

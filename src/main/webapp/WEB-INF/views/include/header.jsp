@@ -107,7 +107,7 @@
 			<li><a href="/member/signUp"><span
 					class="glyphicon glyphicon-user"> SignUp</span></a></li>
 					
-			<li><a href="/member/update"><span
+			<li><a href="/member/myPage"><span
 					class="glyphicon glyphicon-user"> mypage</span></a></li>		
 
 			<c:choose>
