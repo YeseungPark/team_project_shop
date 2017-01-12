@@ -66,13 +66,15 @@
 	<div class="text-center">
 		<h3>Assa</h3>
 	</div>
+	<jsp:include page="../include/header.jsp"></jsp:include>
+	<jsp:include page="mypage.jsp"></jsp:include>
 	
 	<form method="post" action="/member/regist">
 	
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-	    <input id="ID" type="text" class="form-control input-lg" name="ID" placeholder="아이디(이메일)">
+	    <input id="ID" type="text" class="form-control input-lg" name="ID" placeholder="아이디(이메일)" readonly>
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
@@ -90,7 +92,7 @@
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-	    <input id="nick" type="text" class="form-control input-lg" name="nick" placeholder="닉네임">
+	    <input id="nick" type="text" class="form-control input-lg" name="nick" placeholder="닉네임"readonly>
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
