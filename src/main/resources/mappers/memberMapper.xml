@@ -29,5 +29,11 @@
   
   	
   	</insert>
+  	
+  	<select id="login" resultType="MemberVO">
+  		select    	ID,password
+  		from      	member 
+  		where 		ID=#{ID} and password=#{password}
+  	</select>
   </mapper>
   
