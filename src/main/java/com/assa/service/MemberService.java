@@ -8,5 +8,7 @@ public interface MemberService {
 	public void regist(MemberVO vo);
 	
 	public MemberVO login(LoginDTO dto);
+	
+	public void update(MemberVO vo);
 
 }
