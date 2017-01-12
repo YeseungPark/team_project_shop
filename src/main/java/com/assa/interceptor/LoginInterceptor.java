@@ -24,10 +24,15 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session=request.getSession();
 		ModelMap modelMap=modelAndView.getModelMap();
 		Object memberVO = modelMap.get("memberVO");
+<<<<<<< HEAD
 		
+=======
+		logger.info("===========================================================================================");
+>>>>>>> 680b66c90512c60bde67c8f28d8494a7cfc5aaaf
 		if(memberVO != null){
 			logger.info("new login success");
 			logger.info("===========================================================================================");
+			System.out.println(memberVO);
 			session.setAttribute(LOGIN, memberVO);
 			response.sendRedirect("/");
 		}
@@ -38,7 +43,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request,HttpServletResponse response,Object handler){
 		
 		HttpSession session = request.getSession();
-		
+		logger.info("===========================================================================================");
 		if(session.getAttribute(LOGIN)!= null){
 			logger.info("clear login data before");
 			logger.info("===========================================================================================");

@@ -14,9 +14,9 @@ public class MemberDAOImpl implements MemberDAO {
 	@Inject
 	private SqlSession session;
 	
-	private String namespace="com.assa.mapper.MemberVO";
+	private String namespace="com.assa.mapper.MemberMapper";
 	
-	
+	@Override
 	public void regist(MemberVO vo){		
 		session.insert(namespace+".regist", vo);		
 	}

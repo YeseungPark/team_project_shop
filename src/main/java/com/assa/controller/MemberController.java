@@ -48,7 +48,6 @@ public class MemberController {
 			return;
 		}
 		model.addAttribute("memberVO",vo);
-	
 	}
 	
 	
