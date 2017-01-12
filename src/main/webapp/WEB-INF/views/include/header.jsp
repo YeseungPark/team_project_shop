@@ -128,7 +128,7 @@
 <jsp:include page="../member/LogoutPage.jsp"></jsp:include>
 
 <div class="jumbotron">
-  <h1>Assa Company</h1>      
+  <h1>WASSA Company</h1>      
 </div>
 
 
@@ -142,9 +142,9 @@
 			</button>
 		</div>
     </li>
-    <li><a href="#">Best</a></li>
-    <li><a href="#">TOP</a></li>
-    <li><a href="#">OUTER</a></li>
+    <li><a href="/PBoard/BEST">Best</a></li>
+    <li><a href="/PBoard/top">TOP</a></li>
+    <li><a href="/PBoard/outer">OUTER</a></li>
   </ul>
 </nav>
 
