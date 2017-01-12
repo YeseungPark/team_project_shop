@@ -106,6 +106,9 @@
       <ul class="nav navbar-nav navbar-right">
 			<li><a href="/member/signUp"><span
 					class="glyphicon glyphicon-user"> SignUp</span></a></li>
+					
+			<li><a href="/member/update"><span
+					class="glyphicon glyphicon-user"> mypage</span></a></li>		
 
 			<c:choose>
 				<c:when test="${login == null }">
