@@ -82,11 +82,6 @@
 	}
 
 </style>
-<script>
-$(function(){
-	alert('${login}');
-})
-</script>
 </head>
 <body>
 
