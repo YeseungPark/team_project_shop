@@ -24,15 +24,5 @@
 	<context:component-scan base-package="com.assa.controller" />
 	
 	
-	<beans:bean id="loginInterceptor" class="com.assa.interceptor.LoginInterceptor"></beans:bean>
-	
-		<interceptors>
-			<interceptor>
-				<mapping path="/member/loginPost"/>
-				<beans:ref bean="loginInterceptor"/>
-			</interceptor>
-		</interceptors>
-	
-	
 	
 </beans:beans>
