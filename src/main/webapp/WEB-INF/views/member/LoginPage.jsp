@@ -12,14 +12,14 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form" method="post" action="Login.acc">
+          <form role="form" method="post" action="/member/loginPost">
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> UserID</label>
-              <input type="text" class="form-control" id="usrname" name="usrname" placeholder="Enter ID">
+              <input type="text" class="form-control" id="ID" name="ID" placeholder="Enter ID">
             </div>
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="password" class="form-control" id="psw" name="psw" placeholder="Enter password">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
             </div>
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>

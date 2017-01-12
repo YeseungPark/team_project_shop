@@ -82,6 +82,11 @@
 	}
 
 </style>
+<script>
+$(function(){
+	alert('${login}');
+})
+</script>
 </head>
 <body>
 
@@ -108,7 +113,7 @@
 					class="glyphicon glyphicon-user"> SignUp</span></a></li>
 
 			<c:choose>
-				<c:when test="${ID == null }">
+				<c:when test="${login == null }">
 					<li><a href="#"><span class="glyphicon glyphicon-log-in"
 							id="myBtn"> Login</span></a></li>
 				</c:when>
