@@ -93,14 +93,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand" href="home.jsp">Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="/product/insert">상품 등록</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -140,7 +140,7 @@
   <ul class="nav navbar-nav">
     <li>
     	<div class="text-center">
-			<button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal" style="background-color:white;">
+			<button type="button" class="btn btn-lg" data-toggle="modal" data-target="#sideMenu" style="background-color:white;">
 				<span class="glyphicon glyphicon-menu-hamburger"></span>
 			</button>
 		</div>
@@ -156,7 +156,7 @@
 <div class="container demo">	
 
 	<!-- Modal -->
-	<div class="modal left fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal left fade" id="sideMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 
