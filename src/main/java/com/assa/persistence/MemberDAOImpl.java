@@ -24,5 +24,9 @@ public class MemberDAOImpl implements MemberDAO {
 	public MemberVO login(LoginDTO dto){
 		return session.selectOne(namespace+".login",dto);
 	}
+	@Override
+	public void update(MemberVO vo){
+		session.update(namespace+".update",vo);
+	}
 	
 }
