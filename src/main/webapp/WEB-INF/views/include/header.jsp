@@ -82,6 +82,14 @@
 	}
 
 </style>
+<script>
+	$(function(){
+		$("#home_logo").click(function(){
+			self.location="/";
+			
+		})
+	})
+</script>
 </head>
 <body>
 
@@ -93,7 +101,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="home.jsp">Logo</a>
+      <a class="navbar-brand" href="../"><span class="glyphicon glyphicon-home" style="color:black"></span></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -129,8 +137,8 @@
 <jsp:include page="../member/LoginPage.jsp"></jsp:include>
 <jsp:include page="../member/LogoutPage.jsp"></jsp:include>
 
-<div class="jumbotron">
-  <h1>WASSA Company</h1>      
+<div class="jumbotron" style="text-decoration:none">
+  <h1 style="cursor:pointer" id="home_logo">WASSA Company</h1>      
 </div>
 
 

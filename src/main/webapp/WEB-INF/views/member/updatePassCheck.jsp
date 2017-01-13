@@ -28,6 +28,8 @@
 </div>
 </div>
 
+<jsp:include page="../include/footer.jsp"></jsp:include>
+
 <script>
 
 	$(document).ready(function(){
