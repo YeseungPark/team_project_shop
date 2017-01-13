@@ -49,10 +49,9 @@ public class MemberController {
 		model.addAttribute("memberVO",vo);
 	}
 	@RequestMapping(value="/myPage",method=RequestMethod.GET)
-	public void myPageGET(){
-		
+	public String myPageGET(){
+		return "/member/myPage";
 	}
-	
 	@RequestMapping(value="/updatePassCheck",method=RequestMethod.GET)
 	public String updatePassCheckGET(){
 		
