@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <meta charset="UTF-8">
 
-<jsp:include page="mypage.jsp"></jsp:include>
+<jsp:include page="myPage.jsp"></jsp:include>
 
 <div class="container">
 <div class="row">

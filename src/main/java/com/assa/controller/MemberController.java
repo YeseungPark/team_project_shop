@@ -51,7 +51,7 @@ public class MemberController {
 	}
 	@RequestMapping(value="/myPage",method=RequestMethod.GET)
 	public String myPageGET(){
-		return "/member/mypage";
+		return "/member/myPage";
 	}
 	
 	@RequestMapping(value="/update",method=RequestMethod.GET)
