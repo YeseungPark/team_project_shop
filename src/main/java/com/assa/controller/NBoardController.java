@@ -14,7 +14,7 @@ import com.assa.domain.NBoardVO;
 import com.assa.service.NBoardService;
 
 @Controller
-@RequestMapping("/NBoard")
+@RequestMapping("/NBoard/*")
 public class NBoardController {
 
 	private static final Logger logger = LoggerFactory.getLogger(NBoardController.class);
@@ -28,17 +28,18 @@ public class NBoardController {
 		logger.info("register get ...........");
 	}
 
-	   @RequestMapping(value = "/register", method = RequestMethod.POST)
-	   public String registPOST(NBoardVO board, Model model) throws Exception {
-	  
-	   logger.info("regist post ...........");
-	   logger.info(board.toString());
-	  
-	   service.regist(board);
-	  
-	   model.addAttribute("result", "success");
-	  
-	   return "/board/success";
-//	   return "redirect:/board/listAll";
-	   }
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String registPOST(NBoardVO board, Model model) throws Exception {
+
+		logger.info("regist post.......");
+		logger.info(board.toString());
+
+		service.regist(board);
+
+		model.addAttribute("result", "success");
+
+		return "/NBoard/success";
+
+	}
+
 }
