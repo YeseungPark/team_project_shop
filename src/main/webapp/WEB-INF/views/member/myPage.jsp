@@ -10,8 +10,8 @@
 
 
 	<div class="btn-group">
-	  <a href="/member/update"><button type="button" class="btn btn-default" style="border:1px solid black;">Edit my Info</button></a>
-	  <a href="/member/delete"><button type="button" class="btn btn-default" style="border:1px solid black;">Secession</button></a>
+	  <a href="/member/updatePassCheck"><button type="button" class="btn btn-default" style="border:1px solid black;">Edit my Info</button></a>
+	  <a href="/member/deletePassCheck"><button type="button" class="btn btn-default" style="border:1px solid black;">Secession</button></a>
 	</div>
 </div>
 

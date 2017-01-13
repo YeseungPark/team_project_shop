@@ -26,7 +26,6 @@ public class MemberController {
 	
 	@RequestMapping(value="/signUp",method=RequestMethod.GET)
 	public String signUpGET(){
-		logger.info("================================================");
 		return "/member/regist";
 	}
 	
@@ -54,10 +53,19 @@ public class MemberController {
 		return "/member/myPage";
 	}
 	
-	@RequestMapping(value="/update",method=RequestMethod.GET)
-	public String updateGET(){
+	@RequestMapping(value="/updatePassCheck",method=RequestMethod.GET)
+	public String updatePassCheckGET(){
 		
 		return "/member/updatePassCheck";
 	}
-	
+	@RequestMapping(value="/update",method=RequestMethod.GET)
+	public String updateGET(){
+		
+		return "/member/update";
+	}
+	@RequestMapping(value="/deletePassCheck",method=RequestMethod.GET)
+	public String deletePassCheckGET(){
+		
+		return "/member/deletePassCheck";
+	}
 }

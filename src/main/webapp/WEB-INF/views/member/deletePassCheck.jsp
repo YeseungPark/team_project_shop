@@ -20,7 +20,7 @@
   		</div>
   		<div class="col-sm-4"></div>
   		<br/><br/>
-  		<button class="btn btn-default" id="updateBtn">확인</button>
+  		<button class="btn btn-default" id="deleteBtn">확인</button>
   		<a href="/member/myPage"><button class="btn btn-default">취소</button></a>
   
   </div>
@@ -31,7 +31,7 @@
 <script>
 
 	$(document).ready(function(){
-		$("#updateBtn").click(function(){
+		$("#deleteBtn").click(function(){
 			var password = $("#pass").val();
 			
 			if(password == null || password == ""){
@@ -42,7 +42,7 @@
 				alert("비밀번호가 맞지 않습니다.");
 				return false;
 			}
-			self.location="/member/update";
+			self.location="";
 			
 		})
 	})
