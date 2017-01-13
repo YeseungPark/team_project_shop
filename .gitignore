@@ -42,6 +42,5 @@ src/main/java/com/assa/controller/HomeController.java
 src/main/resources/log4j.xml
 src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml
 src/main/webapp/WEB-INF/spring/root-context.xml
-src/main/webapp/WEB-INF/views/home.jsp
 src/main/webapp/WEB-INF/web.xml
 src/test/resources/log4j.xml
