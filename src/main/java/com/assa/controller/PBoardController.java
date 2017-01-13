@@ -19,7 +19,7 @@ public class PBoardController {
 	@RequestMapping(value="/BEST", method = RequestMethod.GET)
 	public String BESTGET(){
 		
-		logger.info("BEST °ªÀ» ¹Þ¾Æ¿Ô½À´Ï´Ù.");
+		logger.info("BEST ë¡œ ë“¤ì–´ê°‘ë‹ˆë‹¤.");
 		
 		return "/BESTList";
 	}
@@ -27,7 +27,7 @@ public class PBoardController {
 	@RequestMapping(value="/top", method = RequestMethod.GET)
 	public String topGET(){
 		
-		logger.info("top °ªÀ» ¹Þ¾Æ¿Ô½À´Ï´Ù.");
+		logger.info("top ìœ¼ë¡œ ë“¤ì–´ê°‘ë‹ˆë‹¤.");
 		
 		return "/PBoard/top";
 	}
@@ -35,7 +35,7 @@ public class PBoardController {
 	@RequestMapping(value="/outer", method = RequestMethod.GET)
 	public String outerGET(){
 		
-		logger.info("outer °ªÀ» ¹Þ¾Æ¿Ô½À´Ï´Ù.");
+		logger.info("outer ë¡œ ë“¤ì–´ê°‘ë‹ˆë‹¤.");
 		
 		return "/PBoard/outer";
 	}

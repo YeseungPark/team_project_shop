@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.assa.mapper.productMapper">
+  	<insert id="productInsert">
+  		insert into 	product(
+  					product_name,
+  					product_price,
+  					product_point,
+  					product_color,
+  					product_size,
+  					product_stoke,
+  					content,
+  					category,
+  					category_detail,
+  					reg_date
+  								
+  		)
+  		values(
+  					#{product_name},
+  					#{product_price},
+  					#{product_point},
+  					#{product_color},
+  					#{product_size},
+  					#{product_stoke},
+  					#{content},
+  					#{category},
+  					#{category_detail},
+  					now()
+  					
+  			
+  		)
+ 	</insert>
+ 	
+ 	<select id="productList" resultType="productVO">
+  		<![CDATA[
+			 select *
+			 from 
+			   product
+			 where product_index > 0 
+			 order by product_index desc, reg_date desc
+		 ]]>  
+  	</select>
+
+  </mapper>
+  

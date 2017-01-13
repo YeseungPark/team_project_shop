@@ -13,6 +13,7 @@ public class ProductVO {
 	private String product_color;
 	private String content;
 	private String category;
+	private String category_detail;
 	private Timestamp reg_date;
 	
 	public int getProduct_index() {
@@ -74,6 +75,12 @@ public class ProductVO {
 	}
 	public void setReg_date(Timestamp reg_date) {
 		this.reg_date = reg_date;
+	}
+	public String getCategory_detail() {
+		return category_detail;
+	}
+	public void setCategory_detail(String category_detail) {
+		this.category_detail = category_detail;
 	}
 	
 	
