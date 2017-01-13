@@ -28,18 +28,23 @@ public class NBoardController {
 		logger.info("register get ...........");
 	}
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registPOST(NBoardVO board, Model model) throws Exception {
+	 @RequestMapping(value = "/register", method = RequestMethod.POST)
+	  public String registPOST(NBoardVO board, RedirectAttributes rttr) throws Exception {
 
-		logger.info("regist post.......");
-		logger.info(board.toString());
+	    logger.info("regist post ...........");
+	    logger.info(board.toString());
 
-		service.regist(board);
+	    service.regist(board);
 
-		model.addAttribute("result", "success");
+	    rttr.addFlashAttribute("msg", "SUCCESS");
+	    return "redirect:/NBoard/listAll";
+	  }
 
-		return "/NBoard/success";
+	  @RequestMapping(value = "/listAll", method = RequestMethod.GET)
+	  public void listAll(Model model) throws Exception {
 
-	}
+	    logger.info("show all list......................");
+	    model.addAttribute("list", service.listAll());
+	  }
 
 }

@@ -18,9 +18,9 @@
 <form role="form" method="post">
 	<div class="box-body">
 		<div class="form-group">
-			<label for="exampleInputEmail1">Title</label> 
+			<label for="exampleInputEmail1">subject</label> 
 			<input type="text"
-				name='title' class="form-control" placeholder="Enter Title">
+				name='subject' class="form-control" placeholder="Enter subject">
 		</div>
 		<div class="form-group">
 			<label for="exampleInputPassword1">Content</label>
@@ -28,10 +28,21 @@
 				placeholder="Enter ..."></textarea>
 		</div>
 		<div class="form-group">
-			<label for="exampleInputEmail1">Writer</label> 
+			<label for="exampleInputEmail1">nick</label> 
 			<input type="text"
-				name="writer" class="form-control" placeholder="Enter Writer">
+				name="nick" class="form-control" placeholder="Enter nick">
 		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">password</label> 
+			<input type="password"
+				name="password" class="form-control" placeholder="Enter password">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">category</label> 
+			<input type="text"
+				name="category" class="form-control" placeholder="Enter category">
+		</div>
+		
 	</div>
 	<!-- /.box-body -->
 
