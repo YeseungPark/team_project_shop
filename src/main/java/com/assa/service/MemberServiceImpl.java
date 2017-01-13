@@ -28,4 +28,8 @@ public class MemberServiceImpl implements MemberService{
 	public void update(MemberVO vo){
 		dao.update(vo);
 	}
+	@Override
+	public void delete(String ID){
+		dao.delete(ID);
+	}
 }

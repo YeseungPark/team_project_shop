@@ -16,3 +16,12 @@
 </div>
 
 </div>
+
+<script> 
+	$(function(){
+		if('${updateMsg }' == 'success'){
+			alert("수정 성공!");
+		}
+		
+	})
+</script>

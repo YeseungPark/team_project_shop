@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.assa.domain.MemberVO;
@@ -62,9 +63,32 @@ public class MemberController {
 		
 		return "/member/update";
 	}
+	@RequestMapping(value="/update",method=RequestMethod.POST)
+	public String updatePOST(MemberVO vo,RedirectAttributes rttr){
+		service.update(vo);
+		
+		rttr.addFlashAttribute("updateMsg", "success");
+		
+		return "redirect:/member/myPage";
+		
+	}
 	@RequestMapping(value="/deletePassCheck",method=RequestMethod.GET)
 	public String deletePassCheckGET(){
-		
 		return "/member/deletePassCheck";
 	}
+	@RequestMapping(value="/delete",method=RequestMethod.GET)
+	public String deleteGET(){
+		
+		return "/member/delete";
+	}
+	@RequestMapping(value="/delete",method=RequestMethod.POST)
+	public String deletePOST(@RequestParam("ID") String ID,RedirectAttributes rttr){
+		
+		service.delete(ID);
+		
+		rttr.addFlashAttribute("delMemberMsg", "success");
+		
+		return "redirect:/";
+	}
+	
 }
