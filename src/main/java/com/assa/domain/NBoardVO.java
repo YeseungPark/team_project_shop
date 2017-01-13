@@ -9,7 +9,7 @@ public class NBoardVO {
 	private String subject;
 	private String content;
 	private String password;
-	private Date regdate;
+	private Date reg_date;
 	private String category;
 
 	public Integer getBn_index() {
@@ -52,12 +52,12 @@ public class NBoardVO {
 		this.password = password;
 	}
 
-	public Date getRegdate() {
-		return regdate;
+	public Date getReg_date() {
+		return reg_date;
 	}
 
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
 	}
 
 	public String getCategory() {
@@ -71,7 +71,7 @@ public class NBoardVO {
 	@Override
 	public String toString() {
 		return "NBoardVO[bn_index,nick,subject,content,password,regdate,category] = " + bn_index + "\t" + nick + "\t"
-				+ subject + "\t" + content + "\t" + password + "\t" + regdate + "\t" + category;
+				+ subject + "\t" + content + "\t" + password + "\t" + reg_date + "\t" + category;
 	}
 
 }

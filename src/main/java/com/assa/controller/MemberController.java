@@ -52,7 +52,6 @@ public class MemberController {
 	public String myPageGET(){
 		return "/member/myPage";
 	}
-	
 	@RequestMapping(value="/updatePassCheck",method=RequestMethod.GET)
 	public String updatePassCheckGET(){
 		

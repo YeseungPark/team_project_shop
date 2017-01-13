@@ -52,10 +52,10 @@
 
 	<select id="listAll" resultType="com.assa.domain.NBoardVO">
  <![CDATA[
- SELECT bn_index, nick, subject, content, password, reg_date, category
-FROM board_normal 
-WHERE bn_index>0
-ORDER BY bn_index DESC , reg_date DESC
+		 SELECT bn_index, nick, subject, content, password, reg_date, category
+		FROM board_normal 
+		WHERE bn_index>0
+		ORDER BY bn_index DESC , reg_date DESC
  ]]>
 	</select>
 </mapper>
