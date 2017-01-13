@@ -391,7 +391,7 @@
 
 <jsp:include page="../include/header.jsp"></jsp:include>
 
-<div class="container">
+<div class="container" ng-app="myApp" ng-controller="myCtrl">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="box box-success">
@@ -423,3 +423,12 @@
 </div>
 
 <jsp:include page="../include/footer.jsp"></jsp:include>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+    $http.get("welcome.htm")
+    .then(function(response) {
+        $scope.myWelcome = response.data;
+    });
+});
+</script>

@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 public class ReplyVO {
 	
 	private int reply_index;
+	private int board_index;
 	private String nick;
 	private String content;
 	private String category;
@@ -18,6 +19,14 @@ public class ReplyVO {
 
 	public void setReply_index(int reply_index) {
 		this.reply_index = reply_index;
+	}
+	
+	public int getBoard_index() {
+		return board_index;
+	}
+
+	public void setBoard_index(int board_index) {
+		this.board_index = board_index;
 	}
 
 	public String getNick() {
