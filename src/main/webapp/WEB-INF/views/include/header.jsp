@@ -149,6 +149,7 @@
     <li><a href="/PBoard/outer">OUTER</a></li>
   </ul>
 </nav>
+<hr/>
 
 
 

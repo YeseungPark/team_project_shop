@@ -40,7 +40,7 @@
 	<div class="col-xs-3">
 		<h4>Wassa & Company</h4>
 		<h6><small>
-			Nana&Company INC., Ribbontie<br/>
+			Wassa&Company INC., Ribbontie<br/>
 			Tel.1661-8705 Fax.0303-3442-8707 E-mail.ribboninfo@naver.com<br/>
 			Address. 2-3F, 38 dokseodang-ro, yongsan-gu, seoul, korea<br/>
 			Owner. kim aeda Business license.101-86-72062<br/>

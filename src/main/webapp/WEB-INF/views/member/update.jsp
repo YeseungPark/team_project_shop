@@ -60,7 +60,7 @@
 <jsp:include page="../include/header.jsp"></jsp:include>
 <div class="container">
 	<div class="text-center">
-		<h3>Join</h3>
+		<h3>회원 정보 수정</h3>
 	</div>
 	<form method="post" action="/member/update">
 	
@@ -109,7 +109,7 @@
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
-	  <button type="submit" class="btn btn-primary btn-lg col-xs-6">회원수정</button>
+	  <button type="submit" class="btn btn-primary btn-lg col-xs-6">수정</button>
 	
 	</form>
 </div>
