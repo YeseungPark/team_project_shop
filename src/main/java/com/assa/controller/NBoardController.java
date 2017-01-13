@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.assa.domain.NBoardVO;
@@ -45,6 +46,39 @@ public class NBoardController {
 
 	    logger.info("show all list......................");
 	    model.addAttribute("list", service.listAll());
+	  }
+	  
+	  @RequestMapping(value = "/read", method = RequestMethod.GET)
+	  public void read(@RequestParam("bn_index") int bn_index, Model model) throws Exception {
+
+	    model.addAttribute(service.read(bn_index));
+	  }
+
+	  @RequestMapping(value = "/remove", method = RequestMethod.POST)
+	  public String remove(@RequestParam("bn_index") int bn_index, RedirectAttributes rttr) throws Exception {
+
+	    service.remove(bn_index);
+
+	    rttr.addFlashAttribute("msg", "SUCCESS");
+
+	    return "redirect:/NBoard/listAll";
+	  }
+
+	  @RequestMapping(value = "/modify", method = RequestMethod.GET)
+	  public void modifyGET(int bn_index, Model model) throws Exception {
+
+	    model.addAttribute(service.read(bn_index));
+	  }
+
+	  @RequestMapping(value = "/modify", method = RequestMethod.POST)
+	  public String modifyPOST(NBoardVO board, RedirectAttributes rttr) throws Exception {
+
+	    logger.info("mod post............");
+
+	    service.modify(board);
+	    rttr.addFlashAttribute("msg", "SUCCESS");
+
+	    return "redirect:/NBoard/listAll";
 	  }
 
 }

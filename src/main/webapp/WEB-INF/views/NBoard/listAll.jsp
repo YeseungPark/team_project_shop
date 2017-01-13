@@ -29,15 +29,15 @@
 	</tr>
 
 
-<c:forEach items="${list}" var="boardVO">
+<c:forEach items="${list}" var="NBoardVO">
 
 	<tr>
-		<td>${boardVO.bn_index}</td>
-		<td><a href='/board/read?bn_index=${boardVO.bn_index}'>${boardVO.subject}</a></td>
-		<td>${boardVO.nick}</td>
+		<td>${NBoardVO.bn_index}</td>
+		<td><a href='/NBoard/read?bn_index=${NBoardVO.bn_index}'>${NBoardVO.subject}</a></td>
+		<td>${NBoardVO.nick}</td>
 		<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-				value="${boardVO.reg_date}" /></td>
-		<td><span class="badge bg-red">${boardVO.category }</span></td>
+				value="${NBoardVO.reg_date}" /></td>
+		<td><span class="badge bg-red">${NBoardVO.category }</span></td>
 	</tr>
 
 </c:forEach>
