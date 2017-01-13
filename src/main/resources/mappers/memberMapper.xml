@@ -45,5 +45,9 @@
   		where 		ID=#{ID}		
   					
   	</update>
+  	<delete id="delete">
+  		delete from 	member
+  		where 			ID=#{ID}
+  	</delete>
   </mapper>
   

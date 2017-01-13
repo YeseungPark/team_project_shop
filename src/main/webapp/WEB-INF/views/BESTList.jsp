@@ -22,7 +22,7 @@
 <jsp:include page="./include/header.jsp"></jsp:include>
 
 <style>
-.btn {
+#box {
 	padding: 10px 20px;
 	background-color: #333;
 	color: #f1f1f1;
@@ -30,7 +30,7 @@
 	transition: .2s;
 }
 
-.btn:hover, .btn:focus {
+#box:hover, #box:focus {
 	border: 1px solid #333;
 	background-color: #fff;
 	color: #000;
@@ -48,7 +48,7 @@
 						<strong>${item.product_name}</strong>
 					</p>
 					<p>${item.product_price}</p>
-					<a href="#"><button class="btn">장바구니 담기</button></a>
+					<a href="#"><button id="box" class="btn">장바구니 담기</button></a>
 				</div>
 			</div>
 		</div>
