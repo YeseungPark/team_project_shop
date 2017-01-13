@@ -14,7 +14,8 @@
   					product_stoke,
   					content,
   					category,
-  					category_detail
+  					category_detail,
+  					reg_date
   								
   		)
   		values(
@@ -26,11 +27,22 @@
   					#{product_stoke},
   					#{content},
   					#{category},
-  					#{category_detail}
+  					#{category_detail},
+  					now()
   					
   			
   		)
  	</insert>
+ 	
+ 	<select id="productList" resultType="productVO">
+  		<![CDATA[
+			 select *
+			 from 
+			   product
+			 where product_index > 0 
+			 order by product_index desc, reg_date desc
+		 ]]>  
+  	</select>
 
   </mapper>
   

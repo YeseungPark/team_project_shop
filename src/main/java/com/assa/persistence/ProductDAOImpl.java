@@ -1,5 +1,7 @@
 package com.assa.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -18,5 +20,11 @@ public class ProductDAOImpl implements ProductDAO{
 	@Override
 	public void productInsert(ProductVO vo) {
 		session.insert(namespace+".productInsert", vo);
+	}
+
+	@Override
+	public List<ProductVO> productList() {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".productList");
 	}
 }
