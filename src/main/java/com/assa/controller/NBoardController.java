@@ -14,7 +14,7 @@ import com.assa.domain.NBoardVO;
 import com.assa.service.NBoardService;
 
 @Controller
-@RequestMapping("/NBoard/*")
+@RequestMapping("/NBoard")
 public class NBoardController {
 
 	private static final Logger logger = LoggerFactory.getLogger(NBoardController.class);
