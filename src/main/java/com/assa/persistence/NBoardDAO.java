@@ -8,11 +8,11 @@ public interface NBoardDAO {
 
 	public void create(NBoardVO vo) throws Exception;
 
-	public NBoardVO read(Integer bno) throws Exception;
+	public NBoardVO read(Integer bn_index) throws Exception;
 
 	public void update(NBoardVO vo) throws Exception;
 
-	public void delete(Integer bno) throws Exception;
+	public void delete(Integer bn_index) throws Exception;
 
 	public List<NBoardVO> listAll() throws Exception;
 }

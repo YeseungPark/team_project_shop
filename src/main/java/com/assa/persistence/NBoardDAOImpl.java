@@ -10,41 +10,36 @@ import org.springframework.stereotype.Repository;
 import com.assa.domain.NBoardVO;
 
 @Repository
-public class NBoardDAOImpl implements NBoardDAO{
+public class NBoardDAOImpl implements NBoardDAO {
 
 	@Inject
 	private SqlSession session;
-	
-	private String namespace="com.assa.mapper.NBoardMapper";
-	
+
+	private static String namespace = "com.assa.mapper.NBoardMapper";
+
 	@Override
 	public void create(NBoardVO vo) throws Exception {
-		// TODO Auto-generated method stub
-		
+		session.insert(namespace + ".create", vo);
 	}
 
 	@Override
-	public NBoardVO read(Integer bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public NBoardVO read(Integer bn_index) throws Exception {
+		return session.selectOne(namespace + ".read", bn_index);
 	}
 
 	@Override
 	public void update(NBoardVO vo) throws Exception {
-		// TODO Auto-generated method stub
-		
+		session.update(namespace + ".update", vo);
 	}
 
 	@Override
-	public void delete(Integer bno) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public void delete(Integer bn_index) throws Exception {
+		session.delete(namespace + ".delete", bn_index);
 	}
 
 	@Override
 	public List<NBoardVO> listAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectList(namespace + ".listAll");
 	}
 
 }
