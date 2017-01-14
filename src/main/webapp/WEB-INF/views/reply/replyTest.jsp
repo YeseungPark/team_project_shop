@@ -441,9 +441,11 @@
 	top: 0;
 }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+	
 <meta charset="UTF-8">
 
 <jsp:include page="../include/header.jsp"></jsp:include>
@@ -469,7 +471,7 @@
 				<i class="fa fa-comments bg-blue"></i>
 				 <div class="timeline-item" >
 				  <span class="time">
-				    <i class="fa fa-clock-o"></i>{{reply.reg_date}}
+				    <i class="fa fa-clock-o"></i>{{reply.reg_date | date:'yyyy/MM/dd HH:mm'}}
 				  </span>
 				  <h3 class="timeline-header"><strong>{{reply.reply_index}}</strong> -{{reply.nick}}</h3>
 				  <div class="timeline-body">{{reply.content}} </div>
