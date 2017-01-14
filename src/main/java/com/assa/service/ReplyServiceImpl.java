@@ -5,9 +5,12 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.springframework.stereotype.Service;
+
 import com.assa.domain.ReplyVO;
 import com.assa.persistence.ReplyDAO;
 
+@Service
 public class ReplyServiceImpl implements ReplyService{
 
 	@Inject

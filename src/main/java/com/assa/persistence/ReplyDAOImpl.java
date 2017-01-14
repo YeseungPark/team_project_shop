@@ -6,9 +6,11 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 import com.assa.domain.ReplyVO;
 
+@Repository
 public class ReplyDAOImpl implements ReplyDAO{
 
 	@Inject
