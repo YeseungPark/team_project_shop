@@ -387,6 +387,7 @@
 }
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
 <meta charset="UTF-8">
 
 <jsp:include page="../include/header.jsp"></jsp:include>
@@ -426,9 +427,25 @@
 <script>
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http) {
-    $http.get("welcome.htm")
-    .then(function(response) {
-        $scope.myWelcome = response.data;
-    });
+    $("#replyAddBtn").click(function(){
+    	var content = $("#newReplyText").val();
+    	$http({
+        	method : 'POST',
+        	url : '/replies/regist',
+        	headers: {
+        		   'Content-Type': 'application/json'
+        	},
+        	data: JSON.stringify({
+        		board_index:10,
+        		nick:'${login.nick}',
+        		content:content,
+        		category:'outer'
+        	})
+        }).then(function successCallback(response) {
+        		alert(response.data.result);    
+        }, function errorCallback(response) {
+            	alert(response.data.result);
+        });
+    })
 });
 </script>

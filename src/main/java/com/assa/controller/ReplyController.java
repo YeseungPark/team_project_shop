@@ -25,14 +25,17 @@ public class ReplyController {
 	private ReplyService service;
 	
 	@RequestMapping(value="/regist",method=RequestMethod.POST)
-	public ResponseEntity<String> register(@RequestBody ReplyVO vo){
-		ResponseEntity<String> entity = null;
+	public ResponseEntity<Map<String,String>> register(@RequestBody ReplyVO vo){
+		ResponseEntity<Map<String,String>> entity = null;
+		Map<String,String> map = new HashMap<>();
 		try{
 			service.regist(vo);
-			entity = new ResponseEntity<String>("success",HttpStatus.OK);
+			map.put("result", "success");
+			entity = new ResponseEntity<Map<String,String>>(map,HttpStatus.OK);
 		}catch(Exception e){
 			e.printStackTrace();
-			entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+			map.put("result", "fail");
+			entity = new ResponseEntity<Map<String,String>>(map,HttpStatus.BAD_REQUEST);
 		}
 		return entity;
 	}
