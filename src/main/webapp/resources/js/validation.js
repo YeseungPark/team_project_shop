@@ -17,35 +17,30 @@ $(document).ready(function(){
 		
 	/* 회원가입 유효성 검사 */
 		IDForm.focus(function(){
-			$("#id_alam").html("");
 			IDForm.css("border","1px solid black");
 		})
 		passwordForm.focus(function(){
-			$("#password_alam").html("");
 			passwordForm.css("border","1px solid black");
 		})
 		passcheckForm.focus(function(){
-			$("#passcheck_alam").html("");
 			passcheckForm.css("border","1px solid black");
 		})
 		nickForm.focus(function(){
-			$("#nick_alam").html("");
 			nickForm.css("border","1px solid black");
 		})
 		phoneForm.focus(function(){
-			$("#phone_alam").html("");
 			phoneForm.css("border","1px solid black");
 		}) 
 		
 		IDForm.blur(function(){
 			var ID = $("#ID").val();
 			if(ID == null || ID == ""){
-				$("#id_alam").html("ID를 입력해주세요.");
+				$("#ID").attr("placeholder","e-mail양식에 맞게 입력해주세요.");
 				IDForm.css("border","1px solid red");
 				return;
 			}
 			else if(!email_regex.test(ID)){
-				$("#id_alam").html("이메일 양식에 맞지 않습니다.");
+				$("#ID").attr("placeholder","이메일 양식에 맞지 않습니다.");
 				IDForm.css("border","1px solid red");
 				return;
 			}else{
@@ -55,12 +50,10 @@ $(document).ready(function(){
 		passwordForm.blur(function(){
 			var password = $("#password").val();
 			if(password == null || password == ""){
-				$("#password_alam").html("비밀번호를 입력해주세요.");
 				passwordForm.css("border","1px solid red");
 				return;
 			}
 			else if(!pass_regex.test(password)){
-				$("#password_alam").html("비밀번호 양식에 맞지 않습니다.");
 				passwordForm.css("border","1px solid red");
 				return;
 			}else{
@@ -72,12 +65,12 @@ $(document).ready(function(){
 			var passcheck = $("#passcheck").val();
 
 			if(passcheck == null || password == ""){
-				$("#passcheck_alam").html("비밀번호가 일치하지 않습니다.");
+				$("#passcheck").attr("placeholder","비밀번호가 일치하지 않습니다.");
 				passcheckForm.css("border","1px solid red");
 				return;
 			}
 			else if(password != passcheck){
-				$("#passcheck_alam").html("비밀번호가 일치하지 않습니다.");
+				$("#passcheck").attr("placeholder","비밀번호가 일치하지 않습니다.");
 				passcheckForm.css("border","1px solid red");
 				return;
 			}else{
@@ -88,16 +81,12 @@ $(document).ready(function(){
 			var nick = $("#nick").val();
 			
 			if(nick == null || nick == ""){
-				$("#nick_alam").html("닉네임을 입력해주세요.");
 				nickForm.css("border","1px solid red");
 				return;
 			}
 			else if(!nick_regex.test(nick)){
-				$("#nick_alam").html("닉네임 양식에 맞지 않습니다.");
 				nickForm.css("border","1px solid red");
 				return;
-			} else if(nick =='관리자'){
-				$("#nick_alam").html("이 닉네임은 쓸 수 없습니다.");
 			} else{
 				nickForm.css("border","1px solid #51ba4e");
 			}
@@ -125,6 +114,9 @@ $(document).ready(function(){
 			var passcheck = $("#passcheck").val();
 			var nick = $("#nick").val();
 			var phone = $("#phone").val();
+			var post_code = $("#post_code").val();
+			var address1 = $("#address1").val();
+			var address2 = $("#address2").val();
 			
 			if(ID == null || ID == ""){
 				alert("가입 양식을 다시 확인해주세요.");
@@ -166,9 +158,20 @@ $(document).ready(function(){
 				alert("가입 양식을 다시 확인해주세요.");
 				return;
 			}
+			if(post_code == null || post_code == ""){
+				alert("주소를 다시 입력해주세요.");
+				return;
+			}
+			if(address1 == null || address1 == ""){
+				alert("주소를 다시 입력해주세요.");
+				return;
+			}
+			if(address2 == null || address2 == ""){
+				alert("주소를 다시 입력해주세요.");
+				return;
+			}
+			
 			var regist_form = $("#regist_form");
-			regist_form.attr("method","post");
-			regist_form.attr("action","registMember.mem");
 			regist_form.submit();
 		})
 	/* 회원가입 유효성 검사 끝 */
