@@ -473,7 +473,7 @@
 				  <span class="time">
 				    <i class="fa fa-clock-o"></i>{{reply.reg_date | date:'yyyy/MM/dd HH:mm'}}
 				  </span>
-				  <h3 class="timeline-header"><strong>{{reply.reply_index}}</strong> -{{reply.nick}}</h3>
+				  <h3 class="timeline-header"><strong>{{pageMaker.index-$index}}</strong> -{{reply.nick}}</h3>
 				  <div class="timeline-body">{{reply.content}} </div>
 				    <div class="timeline-footer">
 				     <a href="#modify_{{$index}}" class="btn btn-info btn-xs" data-toggle="collapse">수정</a>
@@ -540,7 +540,6 @@ app.controller('myCtrl', function($scope, $http) {
     $(".timeline").on("click",".btn-danger",function(event){
     	var reply = $(this);
     	var reply_index = reply.attr("data-rno");
-		
 		$http({
         	method : 'DELETE',
         	url : '/replies/'+reply_index,
@@ -593,7 +592,8 @@ app.controller('myCtrl', function($scope, $http) {
     	
     	$http.get("/replies/outer/10/"+page)
         .then(function(response) {
-            $scope.replies = response.data.list;            
+            $scope.replies = response.data.list;   
+            $scope.pageMaker = response.data.pageMaker;
             printPaging(response.data.pageMaker,$("#pagination"));
             
         });    	

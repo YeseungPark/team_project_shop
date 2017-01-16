@@ -10,6 +10,7 @@ public class PageMaker {
   private int endPage;
   private boolean prev;
   private boolean next;
+  private int index;
 
   private int displayPageNum = 10;
 
@@ -40,7 +41,7 @@ public class PageMaker {
     prev = startPage == 1 ? false : true;
 
     next = endPage * cri.getPerPageNum() >= totalCount ? false : true;
-
+    this.index = totalCount - (this.cri.getPage()-1)*this.cri.getPerPageNum();
   }
 
   public int getTotalCount() {
@@ -70,8 +71,17 @@ public class PageMaker {
   public Criteria getCri() {
     return cri;
   }
+  
+  
+  public int getIndex() {
+	return index;
+}
 
-  public String makeQuery(int page){
+public void setIndex(int index) {
+	this.index = index;
+}
+
+public String makeQuery(int page){
     
     UriComponents uriComponents =
               UriComponentsBuilder.newInstance()

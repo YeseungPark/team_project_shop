@@ -101,14 +101,13 @@ public class ReplyController {
 
 	  @RequestMapping(value = "/{reply_index}", method = RequestMethod.DELETE)
 	  public ResponseEntity<Map<String,Object>> remove(@PathVariable("reply_index") Integer reply_index,
-			  @RequestBody String category) {
-
+			  @RequestBody ReplyVO vo) {
 	    ResponseEntity<Map<String,Object>> entity = null;
 	    try {
 	    	Map<String,Object> map = new HashMap<>();
 	    	Map<String,Object> resultMap = new HashMap<>();
 	    	map.put("reply_index", reply_index);
-	    	map.put("category", category);
+	    	map.put("category", vo.getCategory());
 	    	
 	    	resultMap.put("result", "success");
 	    	
