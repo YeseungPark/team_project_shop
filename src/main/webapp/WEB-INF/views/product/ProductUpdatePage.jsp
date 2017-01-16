@@ -35,10 +35,10 @@ function modifyResult(){
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>WASSA 수정등록</title>
 </head>
+<jsp:include page="../include/header.jsp"></jsp:include>
 <body>
 	<table border = "1" class="align-center">
 		<tr>
-			<th>번호</th>
 			<th>상품 이름</th>
 			<th>가 격</th>
 			<th>포인트</th>
@@ -54,7 +54,6 @@ function modifyResult(){
 			<c:forEach var="list" items="${productList}">
 				<form method="get" action="/product/ProductUpdate?product_index="${list.product_index}">
 				<tr>
-						<td><input type="text" name="product_index" value="${list.product_index}" readonly></td>
 						<td><input type="text" name="product_name" value="${list.product_name}"></td>
 						<td><input type="text" name="product_price" value="${list.product_price}"></td>
 						<td><input type="text" name="product_point" value="${list.product_point}"></td>
@@ -66,7 +65,7 @@ function modifyResult(){
 						<td><input type="text" name="content" value="${list.content}"></td>	
 						<td><button type="submit" onclick="modifyResult();">수정</button></td>
 						<td><a href="/product/deletePage?product_index="${list.product_index}"> 삭 제 </a></td>
-					
+					<td><input type="hidden" name="product_index" value="${list.product_index}" readonly></td>
 				</tr>
 				</form>
 			</c:forEach>
@@ -78,4 +77,5 @@ function modifyResult(){
 	<a href="#" class="box"> 게시판 등록 </a>
 	
 </body>
+<jsp:include page="../include/footer.jsp"></jsp:include>
 </html>

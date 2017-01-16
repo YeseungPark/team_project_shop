@@ -69,4 +69,5 @@
 	<a href="#" class="box"> 게시판 등록 </a>
 
 </body>
+<jsp:include page="../include/footer.jsp"></jsp:include>
 </html>
