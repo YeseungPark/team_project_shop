@@ -33,6 +33,11 @@
 			
 		})
 		
+		$("#cancelBtn").click(function(){
+			self.location="/member/myPage";
+			
+		})
+		
 	})
 
 </script>

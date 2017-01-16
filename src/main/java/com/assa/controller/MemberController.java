@@ -1,6 +1,8 @@
 package com.assa.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -49,6 +51,21 @@ public class MemberController {
 		}
 		model.addAttribute("memberVO",vo);
 	}
+	
+	@RequestMapping(value="/logout",method=RequestMethod.GET)
+	public String logout(HttpServletRequest request,HttpServletResponse response,
+			HttpSession session){
+		Object obj = session.getAttribute("login");
+		
+		if(obj != null){
+			MemberVO vo=(MemberVO)obj;
+			
+			session.removeAttribute("login");
+			session.invalidate();
+		}
+		return "redirect:/";
+	}
+	
 	@RequestMapping(value="/myPage",method=RequestMethod.GET)
 	public String myPageGET(){
 		return "/member/myPage";
@@ -86,9 +103,9 @@ public class MemberController {
 		
 		service.delete(ID);
 		
-		rttr.addFlashAttribute("delMemberMsg", "success");
-		
-		return "redirect:/";
+		rttr.addAttribute("delMemberMsg", "success");
+
+		return "redirect:/member/logout";
 	}
 	
 }

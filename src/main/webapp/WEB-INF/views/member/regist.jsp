@@ -78,7 +78,7 @@
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-	    <input id="password" type="password" class="form-control input-lg" name="password" placeholder="비밀번호">
+	    <input id="password" type="password" class="form-control input-lg" name="password" placeholder="비밀번호(영문, 숫자를 혼합하여 6~20자 이내)">
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
@@ -90,7 +90,7 @@
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-	    <input id="nick" type="text" class="form-control input-lg" name="nick" placeholder="닉네임">
+	    <input id="nick" type="text" class="form-control input-lg" name="nick" placeholder="별명(2~10자 특수문자 제외)">
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
