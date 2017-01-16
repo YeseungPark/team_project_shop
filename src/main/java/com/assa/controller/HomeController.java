@@ -35,5 +35,9 @@ public class HomeController {
 		
 		return "home";
 	}
+	@RequestMapping(value="/reply",method=RequestMethod.GET)
+	public String replyGET(){
+		return "/reply/replyTest";
+	}
 	
 }

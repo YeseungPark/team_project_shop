@@ -8,5 +8,6 @@ create table product(
     product_color varchar(20),
     content varchar(300),
     reg_date datetime,
-    category varchar(20)
+    category varchar(20),
+    category_detail varchar(20)
 );
