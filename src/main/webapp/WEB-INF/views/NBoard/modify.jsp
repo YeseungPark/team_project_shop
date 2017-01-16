@@ -27,11 +27,11 @@
 
 		<div class="form-group">
 			<label for="exampleInputEmail1">subject</label> <input type="text"
-				name='subject' class="form-control" value="${NBoardVO.subject}">
+				name='subject' class="form-control" value="${NBoardVO.subject}" required >
 		</div>
 		<div class="form-group">
 			<label for="exampleInputPassword1">Content</label>
-			<textarea class="form-control" name="content" rows="3">${NBoardVO.content}</textarea>
+			<textarea class="form-control" name="content" rows="3" required>${NBoardVO.content}</textarea>
 		</div>
 		<div class="form-group">
 			<label for="exampleInputEmail1">nick</label> <input
