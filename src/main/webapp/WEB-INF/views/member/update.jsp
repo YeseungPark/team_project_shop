@@ -60,14 +60,14 @@
 <jsp:include page="../include/header.jsp"></jsp:include>
 <div class="container">
 	<div class="text-center">
-		<h3>Join</h3>
+		<h3>회원 정보 수정</h3>
 	</div>
 	<form method="post" action="/member/update">
 	
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-	    <input id="ID" type="text" class="form-control input-lg" name="ID" placeholder="아이디(이메일)" readonly>
+	    <input id="ID" type="text" class="form-control input-lg" name="ID" value="${login.ID }" placeholder="아이디(이메일)" readonly>
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
@@ -85,7 +85,7 @@
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-	    <input id="nick" type="text" class="form-control input-lg" name="nick" placeholder="닉네임" readonly>
+	    <input id="nick" type="text" class="form-control input-lg" name="nick" value="${login.nick }" placeholder="닉네임" readonly>
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
@@ -109,7 +109,7 @@
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
-	  <button type="submit" class="btn btn-primary btn-lg col-xs-6">회원수정</button>
+	  <button type="submit" class="btn btn-primary btn-lg col-xs-6">수정</button>
 	
 	</form>
 </div>

@@ -8,6 +8,7 @@
 <head>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="/resources/js/validation.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="css/assa.css" />
@@ -67,54 +68,54 @@
 		<h3>Assa</h3>
 	</div>
 	
-	<form method="post" action="/member/regist">
+	<form method="post" id="regist_form" action="/member/regist">
 	
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-	    <input id="ID" type="text" class="form-control input-lg" name="ID" placeholder="아이디(이메일)">
+	    <input id="ID" type="text" class="form-control input-lg" id="ID" name="ID" placeholder="아이디(이메일)">
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-	    <input id="password" type="password" class="form-control input-lg" name="password" placeholder="비밀번호">
+	    <input id="password" type="password" class="form-control input-lg" id="password" name="password" placeholder="비밀번호(영문, 숫자를 혼합하여 6~20자 이내)">
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-ok-circle"></i></span>
-	    <input id="passcheck" type="password" class="form-control input-lg" name="passcheck" placeholder="비밀번호 확인">
+	    <input id="passcheck" type="password" class="form-control input-lg" id="passcheck" name="passcheck" placeholder="비밀번호 확인">
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-	    <input id="nick" type="text" class="form-control input-lg" name="nick" placeholder="닉네임">
+	    <input id="nick" type="text" class="form-control input-lg" id="nick" name="nick" placeholder="별명(2~10자 특수문자 제외)">
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-	    <input id="phone" type="text" class="form-control input-lg" name="phone" placeholder="전화번호">
+	    <input id="phone" type="text" class="form-control input-lg" id="phone" name="phone" placeholder="전화번호">
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>	 
 	  <div class="input-group col-xs-6">
 	  	<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
 	  	<button type="button" class="btn btn-default btn-lg input-group" onclick="daumPostcode()">우편번호 찾기</button>
-	    <input id="post_code" type="text" class="form-control input-lg" name="post_code" placeholder="우편번호">
+	    <input id="post_code" type="text" class="form-control input-lg" id="post_code" name="post_code" placeholder="우편번호">
 	    
 	  </div>
 	  
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
-	    <input id="address1" type="text" class="form-control input-lg" name="address1" placeholder="주소">
-	    <input id="address2" type="text" class="form-control input-lg" name="address2" placeholder="상세주소">
+	    <input id="address1" type="text" class="form-control input-lg" id="address1" name="address1" placeholder="주소">
+	    <input id="address2" type="text" class="form-control input-lg" id="address2" name="address2" placeholder="상세주소">
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
-	  <button type="submit" class="btn btn-primary btn-lg col-xs-6">회원등록</button>
+	  <button type="button" id="regist_member" class="btn btn-primary btn-lg col-xs-6">회원등록</button>
 	
 	</form>
 </div>

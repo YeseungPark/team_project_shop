@@ -15,7 +15,7 @@
 					<p>로그아웃 하시겠습니까?.</p>
 				</div>
 				<div class="modal-footer">
-					<form method="post"	action="/member/loginPost">
+					<form method="get"	action="/member/logout">
 						<button type="submit" class="btn btn-danger">Logout</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</form>

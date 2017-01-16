@@ -28,5 +28,8 @@ public class MemberDAOImpl implements MemberDAO {
 	public void update(MemberVO vo){
 		session.update(namespace+".update",vo);
 	}
-	
+	@Override
+	public void delete(String ID){
+		session.delete(namespace+".delete",ID);
+	}
 }

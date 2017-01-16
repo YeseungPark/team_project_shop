@@ -156,5 +156,4 @@
   </div>
 </div><br>
 
-
-
+<jsp:include page="include/footer.jsp"></jsp:include>
