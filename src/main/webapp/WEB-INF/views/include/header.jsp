@@ -160,9 +160,13 @@ $(document).ready(function(){
 			</button>
 		</div>
     </li>
-    <li><a href="/PBoard/BEST">Best</a></li>
-    <li><a href="/PBoard/top">TOP</a></li>
-    <li><a href="/PBoard/outer">OUTER</a></li>
+    <li><a href="/pboard/BEST">Best</a></li>
+    <li><a href="/pboard/top">TOP</a></li>
+    <li><a href="/pboard/outer">OUTER</a></li>
+    <li><a href="/pboard/outer">DRESS</a></li>
+    <li><a href="/pboard/outer">BOTTOM</a></li>
+    <li><a href="/pboard/outer">SHOES&BAG</a></li>
+    <li><a href="/pboard/outer">ACC</a></li>
   </ul>
 </nav>
 <hr/>
