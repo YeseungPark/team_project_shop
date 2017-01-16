@@ -467,7 +467,7 @@
 			
 			<!-- The time line -->
 			<ul class="timeline" id="repliesDiv">
-				<li class="replyLi" ng-repeat="reply in replies">
+				<li class="replyLi" data-rno="{{reply.reply_index}}" ng-repeat="reply in replies track by $index"">
 				<i class="fa fa-comments bg-blue"></i>
 				 <div class="timeline-item" >
 				  <span class="time">
@@ -476,17 +476,25 @@
 				  <h3 class="timeline-header"><strong>{{reply.reply_index}}</strong> -{{reply.nick}}</h3>
 				  <div class="timeline-body">{{reply.content}} </div>
 				    <div class="timeline-footer">
-				     <a class="btn btn-primary btn-xs">수정</a>
-				     <a class="btn btn-primary btn-xs">삭제</a>
+				     <a href="#modify_{{$index}}" class="btn btn-info btn-xs" data-toggle="collapse">수정</a>
+				     <button class="btn btn-danger btn-xs" data-rno="{{reply.reply_index}}">삭제</button>
 				    </div>
-				  </div>	
+				    
+				    <div id="modify_{{$index}}" class="collapse timeline-footer">
+					    <input class="form-control" type="text" value="{{reply.content}}" id="{{reply.reply_index}}" placeholder="수정 내용" />
+					    <button class="btn btn-default btn-xs" data-rno="{{reply.reply_index}}">등록</button>
+					</div>
+					  
+				  </div>
+				  
 				</li>
 				<div>
 			</ul>
 			   
 			<div class='text-center'>
 				<ul id="pagination" class="pagination pagination-sm no-margin ">
-	
+				
+				
 				</ul>
 			</div>
 				
@@ -513,22 +521,103 @@ app.controller('myCtrl', function($scope, $http) {
         		category:'outer'
         	})
         }).then(function successCallback(response) {
-        		getAllList(); 
+        		getPageList(1); 
         }, function errorCallback(response) {
             	alert(response.data.result);
         });
     })
     
+    $(".pagination").on("click","li a",function(event){
+    	event.preventDefault();
+    	
+    	board_index = 10;
+    	replyPage = $(this).attr("href");
+    	
+    	getPageList(replyPage);
+    	
+    })
     
-    function getAllList(){
+    $(".timeline").on("click",".btn-danger",function(event){
+    	var reply = $(this);
+    	var reply_index = reply.attr("data-rno");
+		
+		$http({
+        	method : 'DELETE',
+        	url : '/replies/'+reply_index,
+        	headers: {
+        		   'Content-Type': 'application/json',
+        		   "X-HTTP-Method-Override":"DELETE"
+        	},
+        	data: JSON.stringify({
+        		board_index:10,
+				reply_index:reply_index,
+        		category:'outer'
+        	})
+        }).then(function successCallback(response) {
+        		getPageList(1); 
+        }, function errorCallback(response) {
+            	alert(response.data);
+        });
+    	
+    })
+    $(".timeline").on("click",".btn-default",function(event){
+    	var reply = $(this);
+    	var reply_index = reply.attr("data-rno");
+    	var content = $('#'+reply_index).val();
+    	var category = 'outer';
+    	
+    	$http({
+        	method : 'PUT',
+        	url : '/replies/'+reply_index,
+        	headers: {
+        		   'Content-Type': 'application/json',
+        		   "X-HTTP-Method-Override":"PUT"
+        	},
+        	data: JSON.stringify({
+        		board_index:10,
+				reply_index:reply_index,
+        		content:content,
+        		category:'outer'
+        	})
+        }).then(function successCallback(response) {
+        		getPageList(1); 
+        }, function errorCallback(response) {
+            	alert(response.data);
+        });
+    	
+    })
+    
+    function getPageList(page){
     	
     	var str="";
     	
-    	$http.get("/replies/outer/10")
+    	$http.get("/replies/outer/10/"+page)
         .then(function(response) {
-            $scope.replies = response.data;
-        });
+            $scope.replies = response.data.list;            
+            printPaging(response.data.pageMaker,$("#pagination"));
+            
+        });    	
+    }
+    function printPaging(pageMaker,target){
     	
+    	var str = "";
+    	
+    	if (pageMaker.prev) {
+			str += "<li><a href='" + (pageMaker.startPage - 1)
+					+ "'> << </a></li>";
+		}
+
+		for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
+			var strClass = pageMaker.cri.page == i ? 'class=active' : '';
+			str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
+		}
+
+		if (pageMaker.next) {
+			str += "<li><a href='" + (pageMaker.endPage + 1)
+					+ "'> >> </a></li>";
+		}
+
+		target.html(str);
     }
 });
 

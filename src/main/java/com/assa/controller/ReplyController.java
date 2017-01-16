@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.assa.domain.Criteria;
+import com.assa.domain.PageMaker;
 import com.assa.domain.ReplyVO;
 import com.assa.service.ReplyService;
 
@@ -40,22 +42,82 @@ public class ReplyController {
 		return entity;
 	}
 	
-	@RequestMapping(value="/{category}/{board_index}",method=RequestMethod.GET)
-	public ResponseEntity<List<ReplyVO>> list(
+	@RequestMapping(value="/{category}/{board_index}/{page}",method=RequestMethod.GET)
+	public ResponseEntity<Map<String,Object>> list(
 			@PathVariable("category") String category,
-			@PathVariable("board_index") Integer board_index){
+			@PathVariable("board_index") Integer board_index,
+			@PathVariable("page") Integer page){
 		
-		ResponseEntity<List<ReplyVO>> entity = null;
+		ResponseEntity<Map<String,Object>> entity = null;
 		try{
 			Map<String,Object> map = new HashMap<>();
 			map.put("category", category);
 			map.put("board_index", board_index);
 			
-			entity = new ResponseEntity<List<ReplyVO>>(service.replyLists(map),HttpStatus.OK);
+			Criteria cri = new Criteria();
+			cri.setPage(page);
+			
+			PageMaker pageMaker = new PageMaker();
+			pageMaker.setCri(cri);
+			
+			int replyCount = service.count(map);
+			pageMaker.setTotalCount(replyCount);
+			List<ReplyVO> list = service.replyLists(map, cri);
+			
+			map.put("list", list);
+			map.put("pageMaker", pageMaker);
+			
+			entity = new ResponseEntity<Map<String,Object>>(map,HttpStatus.OK);
 		}catch(Exception e){
 			e.printStackTrace();
-			entity = new ResponseEntity<List<ReplyVO>>(HttpStatus.BAD_REQUEST);
+			entity = new ResponseEntity<Map<String,Object>>(HttpStatus.BAD_REQUEST);
 		}
 		return entity;
 	}
+	
+	@RequestMapping(value = "/{reply_index}", method = { RequestMethod.PUT, RequestMethod.PATCH })
+	  public ResponseEntity<Map<String,Object>> update(@PathVariable("reply_index") Integer reply_index,
+			  @RequestBody ReplyVO vo) {
+
+	    ResponseEntity<Map<String,Object>> entity = null;
+	    try {
+	    	Map<String,Object> map = new HashMap<>();
+	    	Map<String,Object> resultMap = new HashMap<>();
+	    	
+	    	map.put("content", vo.getContent());
+	    	map.put("reply_index", reply_index);
+	    	map.put("category",vo.getCategory());
+	    	service.update(map);
+	    	
+	    	resultMap.put("result", "success");
+
+	    	entity = new ResponseEntity<Map<String,Object>>(resultMap, HttpStatus.OK);
+	    } catch (Exception e) {
+	    	e.printStackTrace();
+	    	entity = new ResponseEntity<Map<String,Object>>(HttpStatus.BAD_REQUEST);
+	    }
+	    return entity;
+	  }
+
+	  @RequestMapping(value = "/{reply_index}", method = RequestMethod.DELETE)
+	  public ResponseEntity<Map<String,Object>> remove(@PathVariable("reply_index") Integer reply_index,
+			  @RequestBody String category) {
+
+	    ResponseEntity<Map<String,Object>> entity = null;
+	    try {
+	    	Map<String,Object> map = new HashMap<>();
+	    	Map<String,Object> resultMap = new HashMap<>();
+	    	map.put("reply_index", reply_index);
+	    	map.put("category", category);
+	    	
+	    	resultMap.put("result", "success");
+	    	
+	    	service.delete(map);
+	    	entity = new ResponseEntity<Map<String,Object>>(resultMap, HttpStatus.OK);
+	    } catch (Exception e) {
+	    	e.printStackTrace();
+	    	entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	    }
+	    return entity;
+	  }
 }

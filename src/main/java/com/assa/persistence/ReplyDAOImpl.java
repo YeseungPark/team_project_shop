@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.assa.domain.Criteria;
 import com.assa.domain.ReplyVO;
 
 @Repository
@@ -23,7 +24,8 @@ public class ReplyDAOImpl implements ReplyDAO{
 		session.insert(namespace+".regist", vo);
 	}
 	@Override
-	public List<ReplyVO> replyLists(Map<String,Object> map){
+	public List<ReplyVO> replyLists(Map<String,Object> map,Criteria cri){
+		map.put("cri", cri);
 		return session.selectList(namespace+".replyLists",map);
 	}
 	@Override
@@ -33,5 +35,9 @@ public class ReplyDAOImpl implements ReplyDAO{
 	@Override
 	public void delete(Map<String,Object> map){
 		session.delete(namespace+".delete", map);
+	}
+	@Override
+	public int count(Map<String,Object> map){
+		return session.selectOne(namespace+".count",map);
 	}
 }

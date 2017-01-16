@@ -25,6 +25,7 @@
   		where 		board_index=#{board_index}
   		and			category=#{category}
   		order by	reply_index desc
+  		limit		#{cri.pageStart},#{cri.perPageNum}
   	</select>
   	<update id="update">
   		update		reply
@@ -37,5 +38,11 @@
   		where		reply_index=#{reply_index}
   		and			category=#{category}
   	</delete>
+  	<select id="count" resultType="int">
+  		select		count(board_index)
+  		from		reply
+  		where		board_index=#{board_index}
+  		and			category=#{category}
+  	</select>
   </mapper>
   
