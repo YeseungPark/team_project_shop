@@ -9,7 +9,11 @@ create table board_normal
   ,category varchar(10)  DEFAULT '00'
   );
   
-  
-  SELECT * FROM board_normal 
+CREATE TABLE nboard_category (
+  code int(3) not null 
+  ,name varchar(30) not null
+);
+
+SELECT * FROM board_normal 
 ORDER BY bn_index DESC;
 
