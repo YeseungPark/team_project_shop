@@ -14,6 +14,16 @@ CREATE TABLE nboard_category (
   ,name varchar(30) not null
 );
 
+
+insert into nboard_category (code,name) VALUES ('00','상품문의');
+insert into nboard_category (code,name) VALUES ('01','주문/결제문의');
+insert into nboard_category (code,name) VALUES ('02','배송문의');
+insert into nboard_category (code,name) VALUES ('03','배송전 취소/변경문의');
+insert into nboard_category (code,name) VALUES ('04','교환/반품(환불)문의');
+insert into nboard_category (code,name) VALUES ('05','적립금/예치금문의');
+insert into nboard_category (code,name) VALUES ('06','기타문의');
+
+
 SELECT * FROM board_normal 
 ORDER BY bn_index DESC;
 
