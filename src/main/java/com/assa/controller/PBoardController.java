@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping("/PBoard")
+@RequestMapping("/pboard")
 public class PBoardController {
 	
 	private static final Logger logger = 
@@ -38,5 +38,10 @@ public class PBoardController {
 		logger.info("outer 로 들어갑니다.");
 		
 		return "/PBoard/outer";
+	}
+	
+	@RequestMapping(value="/write",method=RequestMethod.GET)
+	public String writeGET(){
+		return "/pboard/write";
 	}
 }
