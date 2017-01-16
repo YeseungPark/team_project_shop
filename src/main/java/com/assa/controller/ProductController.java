@@ -55,5 +55,43 @@ public class ProductController {
 		logger.info("LIST 뿌려쭸다..");
 		
 	}
+	
+	@RequestMapping(value = "/ProductUpdatePage", method = RequestMethod.GET)
+	public void ProductUpdatePage(Model model) {
+		
+		List<ProductVO> list = service.productList();
+		
+		model.addAttribute("productList",list);
+		
+		logger.info("update로 들어왔다 ");
+		
+	}
+	
+	@RequestMapping(value = "/ProductUpdate", method = RequestMethod.GET)
+	
+	public String ProductUpdateGET(ProductVO vo, RedirectAttributes rttr) {
+		
+		service.productUpdate(vo);
+
+		rttr.addFlashAttribute("UpdateMsg", "success");
+
+		return "redirect:/product/ProductUpdatePage";
+	}
+	
+	@RequestMapping(value = "/deletePage", method = RequestMethod.GET)
+	public String deletePageGET() {
+
+		logger.info("product delete page 들어갑니다..");
+
+		return "/product/deletePassCheck";
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String deleteGET() {
+
+		logger.info("product delete 합니다.");
+
+		return "/product/ProductUpdatePage";
+	}
 
 }

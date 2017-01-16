@@ -44,5 +44,18 @@
 		 ]]>  
   	</select>
 
+	<update id="productUpdate">
+		update 		product
+  		set			product_name=#{product_name},
+  					product_price=#{product_price},
+  					product_point=#{product_point},
+  					product_color=#{product_color},
+  					product_size=#{product_size},
+  					product_stoke=#{product_stoke},
+  					content=#{content},
+  					category=#{category},
+  					category_detail=#{category_detail}
+  		where 		product_index=#{product_index}		
+	</update>
   </mapper>
   

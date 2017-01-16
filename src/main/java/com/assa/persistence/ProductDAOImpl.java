@@ -27,4 +27,9 @@ public class ProductDAOImpl implements ProductDAO{
 		// TODO Auto-generated method stub
 		return session.selectList(namespace+".productList");
 	}
+
+	@Override
+	public void productUpdate(ProductVO vo) {
+		session.update(namespace+".productUpdate", vo);		
+	}
 }
