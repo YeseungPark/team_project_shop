@@ -21,16 +21,15 @@
 	</insert>
 
 	<select id="read" resultType="com.assa.domain.NBoardVO">
-		select bn_index
-		, nick
-		, subject
-		,content
-		, password
-		, reg_date
-		, category
-		from board_normal
+		SELECT b.bn_index,b.nick, b.subject,
+		b.content, b.password , b.reg_date , c.name category
+		FROM board_normal
+		b
+		INNER JOIN nboard_category c
+		ON b.category = c.code
 		where bn_index
-		= #{bn_index}
+		=
+		#{bn_index}
 	</select>
 
 	<update id="update">
@@ -52,10 +51,12 @@
 
 	<select id="listAll" resultType="com.assa.domain.NBoardVO">
  <![CDATA[
-		 SELECT bn_index, nick, subject, content, password, reg_date, category
-		FROM board_normal 
+		SELECT b.bn_index , b.nick, b.subject, b.content, b.password , b.reg_date , c.name category
+		FROM board_normal b
+		INNER JOIN nboard_category c
+		ON b.category = c.code
 		WHERE bn_index>0
-		ORDER BY bn_index DESC , reg_date DESC
+		ORDER BY bn_index DESC , reg_date DESC;
  ]]>
 	</select>
 </mapper>
