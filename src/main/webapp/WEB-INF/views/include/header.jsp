@@ -6,9 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="" />
 <title>Insert title here</title>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -90,6 +89,16 @@
 		})
 	})
 </script>
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+    $("#myBtn2").click(function(){
+    	$("#myModal2").modal();
+    })
+});
+</script>
 </head>
 <body>
 
@@ -101,7 +110,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="../"><span class="glyphicon glyphicon-home" style="color:black"></span></a>
+      <a class="navbar-brand" href="../"><span class="glyphicon glyphicon-home" style="color:black;"></span></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">

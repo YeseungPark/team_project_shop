@@ -158,12 +158,3 @@
 </div><br>
 
 <jsp:include page="include/footer.jsp"></jsp:include>
-
-<script>
-	$(function(){
-		if('${delMemberMsg}' == 'success'){
-			alert("회원 삭제 성공");
-		}
-		
-	})
-</script>
