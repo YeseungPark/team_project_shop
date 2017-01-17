@@ -10,6 +10,7 @@ public class PBoardVO {
 	private Timestamp reg_date;
 	private String category;
 	private String category_detail;
+	private String thumbnail;
 	
 	private String[] files;
 	
@@ -69,6 +70,14 @@ public class PBoardVO {
 
 	public void setFiles(String[] files) {
 		this.files = files;
+	}
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
 	}
 	
 	

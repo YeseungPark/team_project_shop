@@ -4,26 +4,24 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <meta charset="utf-8">
-<style>
-.thumbnail img { 
-	min-height:300px; height:300px; 
-}
-</style>
+
 <jsp:include page="../include/header.jsp"></jsp:include>
 
 <div class="container">
-	
-	<c:forEach var="lists" items="${topList}">
-		<div class="col-md-3">
-			<div class="thumbnail">
-				<a href="#">
-					<img src="/resources/FileUpload/${lists.thumbnail }" alt="img"><br/>
-					<p style='line-height:0px'><small>${lists.subject }</small></p>
-					<p style='line-height:0px'><small>${lists.reg_date }</small></p>
-				</a>
-			</div>
-		</div>
-	</c:forEach>
+	<table class="table">
+		<tr>
+			<td>제목</td>
+			<td>대분류</td>
+			<td>소분류</td>
+		</tr>
+		<c:forEach var="lists" items="${dressList}">
+			<tr>
+				<td>${lists.subject }</td>
+				<td>${lists.category }</td>
+				<td>${lists.category_detail }</td>
+			</tr>
+		</c:forEach>
+	</table>
 </div>
 
 <jsp:include page="../include/footer.jsp"></jsp:include>

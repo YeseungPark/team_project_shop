@@ -9,7 +9,7 @@
 <jsp:include page="../include/header.jsp"></jsp:include>
 
 <div class="container">
-	<form action="/pboard/write" method="post">
+	<form action="/pboard/write" method="post" enctype="multipart/form-data">
 		<table class="table">
 			<tr>
 				<td>글제목</td>
@@ -20,7 +20,7 @@
 				<td>분류</td>
 				<td>
 					<div class="form-group">				      	
-				      	<select class="form-control" id="category">
+				      	<select class="form-control" id="category" name="category">
 					        <option value="top" selected>TOP</option>
 					        <option value="outer">OUTER</option>
 					        <option value="dress">DRESS</option>
@@ -35,7 +35,7 @@
 				<td>세부분류</td>
 				<td>
 					<div class="form-group" id="category_detail_form">				      	
-				      	<select class="form-control" id="category_detail">
+				      	<select class="form-control" id="category_detail" name="category_detail">
 					        <option value="tee" selected>TEE</option>
 					        <option value="blouse">BLOUSE</option>
 					        <option value="shirts">SHIRTS</option>
@@ -45,8 +45,29 @@
 				</td>
 			</tr>
 			<tr>
-				<td>본문</td>
+				<td>상품</td>
+				<td>
+					<div class="form-group">				      	
+				      	<select class="form-control" id="product_name" name="product_name">
+					        
+				      	</select>
+				    </div>
+				</td>
+			</tr>
+			<tr>
+				<td>					
+					<p>본문</p>
+					<img id="photo" name="photo" width="100%" class="img-thumbnail" style="margin-top:120px;"/>
+				</td>
 				<td colspan="3"><textarea name="content" class="ckeditor"></textarea></td>
+			</tr>
+			<tr>
+				<td style="width:20%;margin:5px;padding-left:10px;">
+					<p>대표 이미지</p> 
+				</td>
+				<td colspan="3">
+					<input type="file" id="file" name="file">
+				</td>
 			</tr>
 			<tr>
 				<td colspan="4" align="right"><input type="submit"
@@ -58,6 +79,19 @@
 
 <jsp:include page="../include/footer.jsp"></jsp:include>
 <script>
+function getProduct(){
+	$("#category_detail").change(function(){
+		var category_detail = $("#category_detail option:selected").val();
+		var str = "";
+		$.getJSON('/pboard/getProduct/'+category_detail,function(data){
+			$(data).each(function(){
+				str += '<option value="'+this.product_name+'">'+this.product_name+'</option>'+
+				
+			})
+		})
+	})
+}
+
 	$(function(){
 		$("#category").change(function(){
 			
@@ -111,7 +145,7 @@
 			}
 			if(category == 'acc'){
 				target.html("");
-				str = '<select class="form-control" id="category_detail">'+
+				str = '<select class="form-control" id="category_detail" onchange="hi()">'+
 				        '<option value="silver">SILVER</option>'+
 				        '<option value="jewelry">JEWELRY</option>'+
 				        '<option value="hairacc">HAIR ACC</option>'+
@@ -123,6 +157,25 @@
 				target.html(str);
 			}
 		})
+		
+		
+		
+		
 	})
 	
+	
+</script>
+<script>
+	$(function(){
+		if('${pboardWriteResult}' == 'success'){
+			alert("제품 게시글 등록 성공!");
+		}
+	})
+</script>
+<script>
+	$(function(){
+		$("#file").change(function(){
+		    document.getElementById('photo').src = window.URL.createObjectURL(this.files[0]);
+		});
+	})
 </script>
