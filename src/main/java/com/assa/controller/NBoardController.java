@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.assa.domain.Criteria;
 import com.assa.domain.NBoardVO;
+import com.assa.domain.PageMaker;
 import com.assa.service.NBoardService;
 
 @Controller
@@ -30,64 +32,79 @@ public class NBoardController {
 		logger.info("register get ...........");
 	}
 
-	 @RequestMapping(value = "/register", method = RequestMethod.POST)
-	  public String registPOST(NBoardVO board, RedirectAttributes rttr) throws Exception {
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String registPOST(NBoardVO board, RedirectAttributes rttr) throws Exception {
 
-	    logger.info("regist post ...........");
-	    logger.info(board.toString());
+		logger.info("regist post ...........");
+		logger.info(board.toString());
 
-	    service.regist(board);
+		service.regist(board);
 
-	    rttr.addFlashAttribute("msg", "SUCCESS");
-	    return "redirect:/NBoard/listAll";
-	  }
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		return "redirect:/NBoard/listAll";
+	}
 
-	  @RequestMapping(value = "/listAll", method = RequestMethod.GET)
-	  public void listAll(Model model) throws Exception {
+	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
+	public void listAll(Model model) throws Exception {
 
-	    logger.info("show all list......................");
-	    model.addAttribute("list", service.listAll());
-	  }
-	  
-	  @RequestMapping(value = "/read", method = RequestMethod.GET)
-	  public void read(@RequestParam("bn_index") int bn_index, Model model) throws Exception {
+		logger.info("show all list......................");
+		model.addAttribute("list", service.listAll());
+	}
 
-	    model.addAttribute(service.read(bn_index));
-	  }
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public void read(@RequestParam("bn_index") int bn_index, Model model) throws Exception {
 
-	  @RequestMapping(value = "/remove", method = RequestMethod.POST)
-	  public String remove(@RequestParam("bn_index") int bn_index, RedirectAttributes rttr) throws Exception {
+		model.addAttribute(service.read(bn_index));
+	}
 
-	    service.remove(bn_index);
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String remove(@RequestParam("bn_index") int bn_index, RedirectAttributes rttr) throws Exception {
 
-	    rttr.addFlashAttribute("msg", "SUCCESS");
+		service.remove(bn_index);
 
-	    return "redirect:/NBoard/listAll";
-	  }
+		rttr.addFlashAttribute("msg", "SUCCESS");
 
-	  @RequestMapping(value = "/modify", method = RequestMethod.GET)
-	  public void modifyGET(int bn_index, Model model) throws Exception {
+		return "redirect:/NBoard/listAll";
+	}
 
-	    model.addAttribute(service.read(bn_index));
-	  }
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public void modifyGET(int bn_index, Model model) throws Exception {
 
-	  @RequestMapping(value = "/modify", method = RequestMethod.POST)
-	  public String modifyPOST(NBoardVO board, RedirectAttributes rttr) throws Exception {
+		model.addAttribute(service.read(bn_index));
+	}
 
-	    logger.info("mod post............");
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modifyPOST(NBoardVO board, RedirectAttributes rttr) throws Exception {
 
-	    service.modify(board);
-	    rttr.addFlashAttribute("msg", "SUCCESS");
+		logger.info("mod post............");
 
-	    return "redirect:/NBoard/listAll";
-	  }
-	  
-	  @RequestMapping(value = "/listCri", method = RequestMethod.GET)
-	  public void listAll(Criteria cri, Model model) throws Exception {
+		service.modify(board);
+		rttr.addFlashAttribute("msg", "SUCCESS");
 
-	    logger.info("show list Page with Criteria......................");
+		return "redirect:/NBoard/listAll";
+	}
 
-	    model.addAttribute("list", service.listCriteria(cri));
-	  }
+	@RequestMapping(value = "/listCri", method = RequestMethod.GET)
+	public void listAll(Criteria cri, Model model) throws Exception {
+
+		logger.info("show list Page with Criteria......................");
+
+		model.addAttribute("list", service.listCriteria(cri));
+	}
+
+	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
+	public void listPage(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
+
+		logger.info(cri.toString());
+
+		model.addAttribute("list", service.listCriteria(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(131);
+
+		// pageMaker.setTotalCount(service.listCountCriteria(cri));
+
+		model.addAttribute("pageMaker", pageMaker);
+	}
 
 }

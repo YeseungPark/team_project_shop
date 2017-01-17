@@ -70,14 +70,14 @@
 	<select id="listPage" resultType="com.assa.domain.NBoardVO">
  <![CDATA[
 		SELECT @ROWNUM := @ROWNUM + 1 AS RNUM
-			, bn_index
-			, subject
-			, content
-			, nick 
-			, reg_date 
-			, category 
-		FROM board_normal , (select @ROWNUM := 0) A
-		ORDER BY rnum
+			, b.bn_index
+			, b.subject
+			, b.content
+			, b.nick 
+			, b.reg_date 
+			, c.name category
+		FROM board_normal b, (select @ROWNUM := 0) A , nboard_category c
+		ORDER BY rnum DESC
 		LIMIT  #{page},10;
  ]]>
 	</select>
@@ -85,13 +85,13 @@
 	<select id="listCriteria" resultType="com.assa.domain.NBoardVO">
  <![CDATA[
 		SELECT @ROWNUM := @ROWNUM + 1 AS RNUM
-			, bn_index
-			, subject
-			, content
-			, nick 
-			, reg_date 
-			, category 
-		FROM board_normal , (select @ROWNUM := 0) A
+			, b.bn_index
+			, b.subject
+			, b.content
+			, b.nick 
+			, b.reg_date 
+			, c.name category
+		FROM board_normal b, (select @ROWNUM := 0) A , nboard_category c
 		ORDER BY rnum DESC
 		LIMIT  #{pageStart},#{perPageNum};
  ]]>
