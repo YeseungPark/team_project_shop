@@ -8,7 +8,7 @@ import com.assa.domain.ProductVO;
 
 public interface PBoardDAO {
 
-	public void addFile(String file_name);
+	public void addFile(String fullName);
 	public void create(PBoardVO vo);
 	public PBoardVO read(Integer board_index);
 	public void update(Map<String,Object> map);

@@ -20,8 +20,8 @@ public class PBoardDAOImpl implements PBoardDAO{
 	private String namespace = "com.assa.mapper.PBoardMapper";
 	
 	@Override
-	public void addFile(String file_name){
-		session.insert(namespace+".addFile", file_name);
+	public void addFile(String fullName){
+		session.insert(namespace+".addFile", fullName);
 	}
 	@Override
 	public void create(PBoardVO vo){

@@ -7,11 +7,11 @@
 	
 	<insert id="addFile">
 		insert into		file(
-					file_name,
+					fileName,
 					bp_index
 		)
 		values(
-					#{file_name},
+					#{fileName},
 					LAST_INSERT_ID()
 		)
 	</insert>

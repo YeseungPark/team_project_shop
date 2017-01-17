@@ -17,11 +17,18 @@ public class PBoardServiceImpl implements PBoardService{
 	@Inject
 	private PBoardDAO dao;
 	
-	public void addFile(String file_name){
-		dao.addFile(file_name);
-	}
 	public void create(PBoardVO vo){
 		dao.create(vo);
+		
+		String[] files = vo.getFiles();
+		
+		if(files == null) return;
+		
+		for(String fileName:files){
+			dao.addFile(fileName);
+			System.out.println("==============================================================================");
+			System.out.println(fileName);
+		}
 	}
 	public PBoardVO read(Integer board_index){
 		return dao.read(board_index);
