@@ -23,8 +23,8 @@
 	<div class="col-xs-3">
 		<h4>Customer service</h4>
 		<h6>
-			<a href="#">Notice</a><br/>
-			<a href="#">Q&A</a><br/>
+			<a href="/NBoard/listCri">Notice</a><br/>
+			<a href="/NBoard/listCri">Q&A</a><br/>
 			<a href="/reply">reply</a><br/>
 		</h6>
 	</div>

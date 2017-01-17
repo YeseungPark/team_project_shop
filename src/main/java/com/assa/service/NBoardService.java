@@ -2,6 +2,7 @@ package com.assa.service;
 
 import java.util.List;
 
+import com.assa.domain.Criteria;
 import com.assa.domain.NBoardVO;
 
 public interface NBoardService {
@@ -16,4 +17,5 @@ public interface NBoardService {
 
 	public List<NBoardVO> listAll() throws Exception;
 
+	public List<NBoardVO> listCriteria(Criteria cri) throws Exception;
 }

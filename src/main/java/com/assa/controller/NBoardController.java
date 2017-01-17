@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.assa.domain.Criteria;
 import com.assa.domain.NBoardVO;
 import com.assa.service.NBoardService;
 
@@ -79,6 +80,14 @@ public class NBoardController {
 	    rttr.addFlashAttribute("msg", "SUCCESS");
 
 	    return "redirect:/NBoard/listAll";
+	  }
+	  
+	  @RequestMapping(value = "/listCri", method = RequestMethod.GET)
+	  public void listAll(Criteria cri, Model model) throws Exception {
+
+	    logger.info("show list Page with Criteria......................");
+
+	    model.addAttribute("list", service.listCriteria(cri));
 	  }
 
 }
