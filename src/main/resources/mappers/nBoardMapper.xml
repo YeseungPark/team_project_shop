@@ -77,6 +77,7 @@
 			, b.reg_date 
 			, c.name category
 		FROM board_normal b, (select @ROWNUM := 0) A , nboard_category c
+		WHERE b.category = c.code
 		ORDER BY rnum DESC
 		LIMIT  #{page},10;
  ]]>
@@ -92,11 +93,18 @@
 			, b.reg_date 
 			, c.name category
 		FROM board_normal b, (select @ROWNUM := 0) A , nboard_category c
+		WHERE b.category = c.code
 		ORDER BY rnum DESC
 		LIMIT  #{pageStart},#{perPageNum};
  ]]>
 	</select>
 
+	<select id="countPaging" resultType="int">
+	<![CDATA[
+		SELECT 
+			count(bn_index)
+	]]>
+	</select>
 
 </mapper>
   

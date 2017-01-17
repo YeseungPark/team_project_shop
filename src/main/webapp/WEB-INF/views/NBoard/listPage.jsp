@@ -31,7 +31,7 @@
 						<c:forEach items="${list}" var="NBoardVO">
 
 							<tr>
-								<td>${NBoardVO.bn_index}</td>
+								<td>${NBoardVO.RNUM}</td>
 								<td><a href='/NBoard/read?bn_index=${NBoardVO.bn_index}'>${NBoardVO.subject}</a></td>
 								<td>${NBoardVO.nick}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
