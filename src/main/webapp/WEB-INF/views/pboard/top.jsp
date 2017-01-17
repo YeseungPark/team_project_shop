@@ -20,7 +20,7 @@
 				<a href="#">
 					<img src="/resources/FileUpload/${lists.thumbnail }" alt="img"><br/>
 					<p style='line-height:0px'><small>${lists.product_name }</small></p>
-					<p style='line-height:0px'><small>${lists.product_price }</small></p>
+					<p style='line-height:0px'><small><fmt:formatNumber value="${lists.product_price }" pattern="₩#,###.##"/></small></p>
 				</a>
 			</div>
 		</div>
