@@ -12,11 +12,6 @@
 	<form action="/pboard/write" method="post" enctype="multipart/form-data">
 		<table class="table">
 			<tr>
-				<td>글제목</td>
-				<td colspan="3"><input type="text" name="subject"
-					maxlength="50" size="50"></td>
-			</tr>
-			<tr>
 				<td>분류</td>
 				<td>
 					<div class="form-group">				      	
@@ -35,11 +30,8 @@
 				<td>세부분류</td>
 				<td>
 					<div class="form-group" id="category_detail_form">				      	
-				      	<select class="form-control" id="category_detail" name="category_detail">
-					        <option value="tee" selected>TEE</option>
-					        <option value="blouse">BLOUSE</option>
-					        <option value="shirts">SHIRTS</option>
-					        <option value="knit">KNIT</option>
+				      	<select class="form-control" id="category_detail" name="category_detail" onchange="getProduct()">
+					        
 				      	</select>
 				    </div>
 				</td>
@@ -48,9 +40,17 @@
 				<td>상품</td>
 				<td>
 					<div class="form-group">				      	
-				      	<select class="form-control" id="product_name" name="product_name">
+				      	<select class="form-control" id="product_name" name="product_name" onchange="getPrice()">
 					        
 				      	</select>
+				    </div>
+				</td>
+			</tr>
+			<tr>
+				<td>상품가격</td>
+				<td>
+					<div class="form-group" id="product_price_form">				      	
+				      	
 				    </div>
 				</td>
 			</tr>
@@ -79,82 +79,86 @@
 
 <jsp:include page="../include/footer.jsp"></jsp:include>
 <script>
+var map = new Map();
+
 function getProduct(){
-	$("#category_detail").change(function(){
+	
+		
 		var category_detail = $("#category_detail option:selected").val();
 		var str = "";
+
 		$.getJSON('/pboard/getProduct/'+category_detail,function(data){
 			$(data).each(function(){
-				str += '<option value="'+this.product_name+'">'+this.product_name+'</option>'+
-				
+				str += '<option value="'+this.product_name+'">'+this.product_name+'</option>';
+				map.set(this.product_name,this.product_price);
 			})
-		})
-	})
+			$("#product_name").html(str);
+			
+		});
+}
+function getPrice(){
+	var product_name = $("#product_name option:selected").val();
+	var str = '<input type="text" value="'+map.get(product_name)+'" name="product_price" class="form-control" readonly/>';
+	$("#product_price_form").html(str);
 }
 
 	$(function(){
 		$("#category").change(function(){
 			
 			var category = $("#category option:selected").val();
-			var target = $("#category_detail_form");
+			var target = $("#category_detail");
 			var str = "";
 			if(category == 'top'){
 				target.html("");
-				str = '<select class="form-control" id="category_detail">'+
-						        '<option value="tee">TEE</option>'+
+				str = 	        '<option value="tee">TEE</option>'+
 						        '<option value="blouse">BLOUSE</option>'+
 						        '<option value="shirts">SHIRTS</option>'+
-						        '<option value="knit">KNIT</option>'+
-					      	'</select>';
+						        '<option value="knit">KNIT</option>';
 				target.html(str); 
+				getProduct();
 			}
 			if(category == 'outer'){
 				target.html("");
-				str = '<select class="form-control" id="category_detail">'+
-				        '<option value="coat">COAT</option>'+
+				str =   '<option value="coat">COAT</option>'+
 				        '<option value="jacket">JACKET</option>'+
 				        '<option value="jumper">JUMPER</option>'+
-				        '<option value="cardigan">CARDIGAN</option>'+
-			      	'</select>';
+				        '<option value="cardigan">CARDIGAN</option>';
 				target.html(str);
+				getProduct();
 			}
 			if(category == 'dress'){
 				target.html("");
-				str = '<select class="form-control" id="category_detail">'+
-				        '<option value="solid">SOLID</option>'+
+				str =   '<option value="solid">SOLID</option>'+
 				        '<option value="pattern">PATTERN</option>'+
-				        '<option value="set">SET</option>'+
-				        '</select>';
+				        '<option value="set">SET</option>';
 				target.html(str);
+				getProduct();
 			}
 			if(category == 'bottom'){
 				target.html("");
-				str = '<select class="form-control" id="category_detail">'+
-				        '<option value="skirt">SKIRT</option>'+
-				        '<option value="pants">PANTS</option>'+
-			      	'</select>';
+				str =   '<option value="skirt">SKIRT</option>'+
+				        '<option value="pants">PANTS</option>';
 				target.html(str);
+				getProduct();
 			}
 			if(category == 'sb'){
 				target.html("");
-				str = '<select class="form-control" id="category_detail">'+
-				        '<option value="shoes">SHOES</option>'+
-				        '<option value="bag">BAG</option>'+
-			      	'</select>';
+				str =   '<option value="shoes">SHOES</option>'+
+				        '<option value="bag">BAG</option>';
 				target.html(str);
+				getProduct();
 			}
 			if(category == 'acc'){
 				target.html("");
-				str = '<select class="form-control" id="category_detail" onchange="hi()">'+
-				        '<option value="silver">SILVER</option>'+
+				str =   '<option value="silver">SILVER</option>'+
 				        '<option value="jewelry">JEWELRY</option>'+
 				        '<option value="hairacc">HAIR ACC</option>'+
 				        '<option value="ch">CAP&HAT</option>'+
 				        '<option value="sm">SCARF&MUFFLER</option>'+
 				        '<option value="st">SOCKS&TIGHTS</option>'+
-				        '<option value="glasses">GLASSES</option>'+
-			      	'</select>';
+				        '<option value="glasses">GLASSES</option>';
 				target.html(str);
+				getProduct();
 			}
 		})
 		

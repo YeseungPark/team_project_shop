@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,7 +24,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.assa.domain.Criteria;
 import com.assa.domain.PBoardVO;
+import com.assa.domain.PageMaker;
+import com.assa.domain.ProductVO;
 import com.assa.service.PBoardService;
 
 /**
@@ -47,18 +51,20 @@ public class PBoardController {
 		return "/pboard/write";
 	}
 	
+	//pboard/write에서 select 태그에서 상품 목록 출력용
 	@RequestMapping(value="/getProduct/{category_detail}",method=RequestMethod.GET)
-	public @ResponseBody ResponseEntity<List<PBoardVO>> getProductGET(@PathVariable("category_detail") String category_detail){
-		ResponseEntity<List<PBoardVO>> entity = null;
+	public @ResponseBody ResponseEntity<List<ProductVO>> getProductGET(@PathVariable("category_detail") String category_detail){
+		ResponseEntity<List<ProductVO>> entity = null;
 		Map<String,Object> map = new HashMap<>();
+
 		try{
 			map.put("category_detail", category_detail);
-			List<PBoardVO> lists = service.listAll(map);
+			List<ProductVO> lists = service.listAll(map);
 			
-			entity = new ResponseEntity<List<PBoardVO>>(lists,HttpStatus.OK);
+			entity = new ResponseEntity<List<ProductVO>>(lists,HttpStatus.OK);
 		}catch(Exception e){
 			e.printStackTrace();
-			entity = new ResponseEntity<List<PBoardVO>>(HttpStatus.BAD_REQUEST);
+			entity = new ResponseEntity<List<ProductVO>>(HttpStatus.BAD_REQUEST);
 		}
 		return entity;
 	}
@@ -91,13 +97,19 @@ public class PBoardController {
 	//뷰페이지 리스트 뿌리기
 	
 	@RequestMapping(value="/top",method=RequestMethod.GET)
-	public String topGET(Model model){
+	public String topGET(@ModelAttribute("cri") Criteria cri,Model model){
 		Map<String,Object> map = new HashMap<>();
 		map.put("category", "top");
 		map.put("category_detail","tee");
+		map.put("cri", cri);
 		
-		List<PBoardVO> topList = service.listAll(map);
-		model.addAttribute("topList",topList);
+		model.addAttribute("list", service.listCriteria(map));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.countPaging("tee"));
+		
+		model.addAttribute("pageMaker",pageMaker);
 		
 		return "/pboard/top";
 	}

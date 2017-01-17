@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.assa.domain.PBoardVO;
+import com.assa.domain.ProductVO;
 
 @Repository
 public class PBoardDAOImpl implements PBoardDAO{
@@ -39,7 +40,7 @@ public class PBoardDAOImpl implements PBoardDAO{
 		session.delete(namespace+".delete",board_index);
 	}
 	@Override
-	public List<PBoardVO> listAll(Map<String,Object> map){
+	public List<ProductVO> listAll(Map<String,Object> map){
 		return session.selectList(namespace+".listAll", map);
 	}
 	@Override

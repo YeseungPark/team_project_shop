@@ -5,7 +5,8 @@ import java.sql.Timestamp;
 public class PBoardVO {
 
 	private int bp_index;
-	private String subject;
+	private String product_name;
+	private int product_price;
 	private String content;
 	private Timestamp reg_date;
 	private String category;
@@ -24,12 +25,20 @@ public class PBoardVO {
 		this.bp_index = bp_index;
 	}
 
-	public String getSubject() {
-		return subject;
+	public String getProduct_name() {
+		return product_name;
 	}
 
-	public void setSubject(String subject) {
-		this.subject = subject;
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+
+	public int getProduct_price() {
+		return product_price;
+	}
+
+	public void setProduct_price(int product_price) {
+		this.product_price = product_price;
 	}
 
 	public String getContent() {

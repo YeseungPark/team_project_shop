@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.assa.domain.PBoardVO;
+import com.assa.domain.ProductVO;
 import com.assa.persistence.PBoardDAO;
 
 @Service
@@ -31,7 +32,7 @@ public class PBoardServiceImpl implements PBoardService{
 	public void delete(Integer board_index){
 		dao.delete(board_index);
 	}
-	public List<PBoardVO> listAll(Map<String,Object> map){
+	public List<ProductVO> listAll(Map<String,Object> map){
 		return dao.listAll(map);
 	}
 	public List<PBoardVO> listCriteria(Map<String,Object> map){

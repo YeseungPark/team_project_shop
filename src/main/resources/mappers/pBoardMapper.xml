@@ -17,10 +17,10 @@
 	</insert>
 	 <insert id="create">
 	 insert into board_product (
-	 			subject,content,thumbnail,category,category_detail
+	 			product_name,product_price,content,thumbnail,category,category_detail
 	 ) 
 	 values(
-	 			#{subject},#{content},#{thumbnail}, #{category}, #{category_detail}
+	 			#{product_name},#{product_price},#{content},#{thumbnail}, #{category}, #{category_detail}
 	 )
 	 </insert>
 	
@@ -32,7 +32,7 @@
 	
 	 <update id="update">
 	 update 	board_product 
-	 set 		subject = #{subject}, content = #{content} 
+	 set 		content = #{content} 
 	 where 		bp_index = #{bp_index}
 	 </update>
 	
@@ -41,13 +41,13 @@
 	 where		 bp_index = #{bp_index}
 	 </delete>
 	
-	 <select id="listAll" resultType="PBoardVO">
+	 <select id="listAll" resultType="ProductVO">
 	 <![CDATA[
 	 select		*
-	 from		board_product 
-	 where 		bp_index > 0
+	 from		product 
+	 where 		product_index > 0
 	 and		category_detail=#{category_detail}
-	 order by 	bp_index desc, reg_date desc
+	 order by 	product_index desc, reg_date desc
 	 ]]>  
 	 </select>
 	
