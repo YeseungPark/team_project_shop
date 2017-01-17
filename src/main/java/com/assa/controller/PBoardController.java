@@ -109,6 +109,8 @@ public class PBoardController {
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.countPaging("tee"));
 		
+		System.out.println("=======================================================================");
+		System.out.println(service.countPaging("tee"));
 		model.addAttribute("pageMaker",pageMaker);
 		
 		return "/pboard/top";
