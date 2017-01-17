@@ -105,13 +105,13 @@ public class PBoardController {
 		
 		model.addAttribute("list", service.listCriteria(map));
 		
-		PageMaker pageMaker = new PageMaker();
+		/*PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.countPaging("tee"));
 		
 		System.out.println("=======================================================================");
 		System.out.println(service.countPaging("tee"));
-		model.addAttribute("pageMaker",pageMaker);
+		model.addAttribute("pageMaker",pageMaker);*/
 		
 		return "/pboard/top";
 	}
