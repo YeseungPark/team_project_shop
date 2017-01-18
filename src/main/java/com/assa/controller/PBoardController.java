@@ -30,6 +30,7 @@ import com.assa.domain.PBoardVO;
 import com.assa.domain.PageMaker;
 import com.assa.domain.ProductVO;
 import com.assa.service.PBoardService;
+import com.assa.service.ProductService;
 
 /**
  * Handles requests for the application home page.
@@ -40,6 +41,9 @@ public class PBoardController {
 	
 	@Inject
 	private PBoardService service;
+	
+	@Inject 
+	private ProductService productService;
 	
 	@Resource(name = "uploadPath")
 	private String uploadPath;
@@ -97,8 +101,9 @@ public class PBoardController {
 	
 	@RequestMapping(value="/read",method=RequestMethod.GET)
 	public String readGET(@RequestParam("bp_index") int bp_index,Model model){
-		
-		model.addAttribute("list", service.read(bp_index));
+		PBoardVO vo = service.read(bp_index);
+		model.addAttribute("boardList", vo);
+		model.addAttribute("productList",service.getProduct(vo.getProduct_name()));
 		model.addAttribute("files", service.getFile(bp_index));
 		return "/pboard/read";
 	}

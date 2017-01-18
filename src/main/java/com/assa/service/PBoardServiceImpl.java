@@ -62,4 +62,8 @@ public class PBoardServiceImpl implements PBoardService{
 	public List<String> getFile(Integer bp_index){
 		return dao.getFile(bp_index);
 	}
+	@Override
+	public ProductVO getProduct(String product_name){
+		return dao.getProduct(product_name);
+	}
 }

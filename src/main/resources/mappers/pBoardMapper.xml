@@ -35,6 +35,11 @@
 	 from		board_product 
 	 where		bp_index = #{bp_index}
 	 </select>
+	<select id="getProduct" resultType="ProductVO">
+		select		*
+		from		product
+		where		product_name=#{product_name}
+	</select>
 	
 	 <update id="update">
 	 update 	board_product 

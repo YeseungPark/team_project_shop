@@ -23,7 +23,7 @@
 	margin-left:20px;
 	font-family: 'Raleway', sans-serif;
 }
-.affix {
+#navAffix.affix {
     top: 0;
     width: 100%;
     z-index: 9999 !important;
@@ -153,7 +153,7 @@ $(document).ready(function(){
 
 
 
-<nav class="navbar" data-spy="affix" data-offset-top="197">
+<nav class="navbar" id="navAffix" data-spy="affix" data-offset-top="197">
   <ul class="nav navbar-nav">
     <li>
     	<div class="text-center">

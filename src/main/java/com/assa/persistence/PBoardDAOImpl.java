@@ -36,6 +36,10 @@ public class PBoardDAOImpl implements PBoardDAO{
 		return session.selectOne(namespace+".read",bp_index);
 	}
 	@Override
+	public ProductVO getProduct(String product_name){
+		return session.selectOne(namespace+".getProduct",product_name);
+	}
+	@Override
 	public void update(Map<String,Object> map){
 		session.update(namespace+".update",map);
 	}
