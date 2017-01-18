@@ -12,7 +12,7 @@ $(document).ready(function(){
 		var IDForm = $("#ID");
 		var passwordForm = $("#password");
 		var passcheckForm = $("#passcheck");
-		var nickForm = $("#nick");
+		var nickForm = $("#nick");	
 		var phoneForm = $("#phone");
 		
 	/* 회원가입 유효성 검사 */
