@@ -1912,7 +1912,7 @@ a:focus {
   font-size: 14px;
 }
 .chat .item > .attachment > p,
-.chat .item > .attachment > .fileName {
+.chat .item > .attachment > .filename {
   font-weight: 600;
   font-size: 13px;
   font-style: italic;

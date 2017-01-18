@@ -94,6 +94,9 @@ public class PBoardController {
 	
 	 }
 	
+	/*@RequestMapping(value="/read",method=RequestMethod.GET)
+	public*/
+	
 	//뷰페이지 리스트 뿌리기
 	
 	@RequestMapping(value="/top",method=RequestMethod.GET)
@@ -111,7 +114,7 @@ public class PBoardController {
 		
 		model.addAttribute("pageMaker",pageMaker);
 		
-		return "/pboard/top";
+		return "/pboard/top/top";
 	}
 	
 	//뷰페이지 리스트 끝
