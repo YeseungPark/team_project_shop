@@ -52,7 +52,7 @@ $(function(){
 		})
 		
 		passcheckForm.blur(function(){
-			var password = $("#password").val();
+			var password = $("#password1").val();
 			var passcheck = $("#passcheck").val();
 
 			if(passcheck == null || password == ""){
@@ -87,7 +87,7 @@ $(function(){
 		
 		
 		$("#updateBtn").click(function(){
-			var password = $("#password").val();
+			var password = $("#password1").val();
 			var passcheck = $("#passcheck").val();
 			var phone = $("#phone").val();
 			var post_code = $("#post_code").val();
@@ -130,9 +130,7 @@ $(function(){
 				alert("주소를 다시 입력해주세요.");
 				return;
 			}
-			
-			var updateBtn = $("#updateBtn");
-			updateBtn.submit();
+			$("#updateForm").submit();
 		})
 })
 </script>
@@ -188,7 +186,7 @@ $(function(){
 	<div class="text-center">
 		<h3>회원 정보 수정</h3>
 	</div>
-	<form method="post" action="/member/update">
+	<form method="post" action="/member/update" id="updateForm">
 	
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
