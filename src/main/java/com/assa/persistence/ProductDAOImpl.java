@@ -27,4 +27,17 @@ public class ProductDAOImpl implements ProductDAO{
 		// TODO Auto-generated method stub
 		return session.selectList(namespace+".productList");
 	}
+
+	@Override
+	public void productUpdate(ProductVO vo) {
+		session.update(namespace+".productUpdate", vo);		
+	}
+
+	@Override
+	public void productDelete(Integer product_index) {
+		// TODO Auto-generated method stub
+		session.delete(namespace+".productDelete", product_index);	
+	}
+
+
 }

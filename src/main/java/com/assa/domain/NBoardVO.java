@@ -11,6 +11,7 @@ public class NBoardVO {
 	private String password;
 	private Date reg_date;
 	private String category;
+	private String name;
 
 	public Integer getBn_index() {
 		return bn_index;
@@ -66,6 +67,14 @@ public class NBoardVO {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
