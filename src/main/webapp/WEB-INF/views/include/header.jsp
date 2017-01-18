@@ -184,10 +184,16 @@ $(document).ready(function(){
 
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel"><strong>Assa Company</strong></h4>
+					<h2 class="modal-title" id="myModalLabel"><strong>Wassa Company</strong></h2>
 				</div>
 
-				<div class="modal-body">
+				<div class="modal-body" >
+				
+					<div style="margin:10px;">
+						<a href="/member/myPage">MY PAGE</a><BR>
+						<a href="#">CART</a><BR>
+					
+					</div>
 					
 					
 					<!-- accordion -->
@@ -195,40 +201,87 @@ $(document).ready(function(){
 				    <div class="panel panel-default">
 				      <div class="panel-heading">
 				        <h4 class="panel-title">
-				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Collapsible Group 1</a>
+				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">CLOTHES</a>
 				        </h4>
 				      </div>
 				      <div id="collapse1" class="panel-collapse collapse in">
-				        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-				        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+				        <div class="panel-body">
+							<div>
+								<a href="#">TOP</a><BR>
+								<a href="#">OUTER</a><BR>
+								<a href="#">DRESS</a><BR>
+								<a href="#">BOTTOM</a><BR>
+							
+							</div>
+						</div>
 				      </div>
 				    </div>
+				    
+				    
 				    <div class="panel panel-default">
 				      <div class="panel-heading">
 				        <h4 class="panel-title">
-				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Collapsible Group 2</a>
+				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">ACC</a>
 				        </h4>
 				      </div>
 				      <div id="collapse2" class="panel-collapse collapse">
-				        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-				        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+				        <div class="panel-body">
+							<div>
+								<a href="#">SHOES&BAG</a><BR>
+								<a href="#">ACCESORY</a><BR>							
+							</div>
+						</div>
 				      </div>
 				    </div>
+				    
+				    
 				    <div class="panel panel-default">
 				      <div class="panel-heading">
 				        <h4 class="panel-title">
-				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Collapsible Group 3</a>
+				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">BOARD</a>
 				        </h4>
 				      </div>
 				      <div id="collapse3" class="panel-collapse collapse">
-				        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-				        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+				        <div class="panel-body">
+							<div>
+								<a href="#">NOTICE</a><BR>
+								<a href="#">Q&A</a><BR>							
+							</div>
+						</div>
 				      </div>
 				    </div>
-				  </div> 
+				    
+				    <div class="panel panel-default">
+				      <div class="panel-heading">
+				        <h4 class="panel-title">
+				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Banking account</a>
+				        </h4>
+				      </div>
+				      <div id="collapse4" class="panel-collapse collapse">
+				        <div class="panel-body">
+							<div>
+								<p>(주)와싸앤컴퍼니</p>
+								<p>우리 1002-1225-561561</p>
+								<p>신한 756-555-4516560</p>
+								<p>국민 76230204-15-1555</p>
+								<p>농협 110-2465-5645166</p>
+							</div>
+						</div>
+				      </div>
+				    </div>
+				    
+				    
+				  </div> <!-- arccodion 끝 -->
+					
+					
+				    
+				    <div>
+						<h4>call me. 1661-8705</h4>
+						<p><small>Monday-Friday</small></p>
+						<p><small>open 11am / break 1pm-2pm / close 6pm</small></p>
+					</div>
+				    
+				    
 					
 					
 				</div>
