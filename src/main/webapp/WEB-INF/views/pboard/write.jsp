@@ -84,6 +84,10 @@ ul{
 <jsp:include page="../include/header.jsp"></jsp:include>
 
 <div class="container">
+	<a href="/product/productList" class="box"> 상품 목록 </a> &nbsp;
+	<a href="/product/ProductUpdatePage" class="box"> 수정 목록 </a> &nbsp;
+	<a href="/product/insert" class="box"> 상품 등록 </a> &nbsp;
+	<a href="/pboard/write" class="box"> 게시판 등록 </a>
 	<form action="/pboard/write" method="post" id="registerForm" enctype="multipart/form-data">
 		<table class="table">
 			<tr>
