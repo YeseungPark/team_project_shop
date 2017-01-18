@@ -85,7 +85,7 @@
 
 	<select id="listCriteria" resultType="com.assa.domain.NBoardVO">
  <![CDATA[
-		SELECT @ROWNUM := @ROWNUM + 1 AS RNUM
+		SELECT @ROWNUM := @ROWNUM + 1 AS rnum
 			, b.bn_index
 			, b.subject
 			, b.content
@@ -99,12 +99,7 @@
  ]]>
 	</select>
 
-	<select id="countPaging" resultType="int">
-	<![CDATA[
-		SELECT 
-			count(bn_index)
-	]]>
-	</select>
+
 
 </mapper>
   
