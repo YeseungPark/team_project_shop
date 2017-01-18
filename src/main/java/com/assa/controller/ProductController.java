@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.assa.domain.ProductVO;
@@ -79,19 +80,23 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/deletePage", method = RequestMethod.GET)
-	public String deletePageGET() {
+	public String deletePageGET(@RequestParam("product_index") Integer product_index,Model model) {
 
+		model.addAttribute("index",product_index);
+		
 		logger.info("product delete page 들어갑니다..");
 
 		return "/product/deletePassCheck";
 	}
 	
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String deleteGET() {
+	 @RequestMapping(value = "/delete", method = RequestMethod.POST)
+	  public String delete(@RequestParam("product_index") int product_index, RedirectAttributes rttr) {
 
-		logger.info("product delete 합니다.");
+	    service.productDelete(product_index);
 
-		return "/product/ProductUpdatePage";
-	}
+	    rttr.addFlashAttribute("delete", "SUCCESS");
+
+	    return "redirect:/product/ProductUpdatePage";
+	  }
 
 }

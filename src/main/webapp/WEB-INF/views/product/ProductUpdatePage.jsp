@@ -37,7 +37,7 @@ function modifyResult(){
 </head>
 <jsp:include page="../include/header.jsp"></jsp:include>
 <body>
-	<table border = "1" class="align-center">
+	<table border = "1">
 		<tr>
 			<th>상품 이름</th>
 			<th>가 격</th>
@@ -64,7 +64,7 @@ function modifyResult(){
 						<td><input type="text" name="category_detail" value="${list.category_detail}"></td>	
 						<td><input type="text" name="content" value="${list.content}"></td>	
 						<td><button type="submit" onclick="modifyResult();">수정</button></td>
-						<td><a href="/product/deletePage?product_index="${list.product_index}"> 삭 제 </a></td>
+						<td><a href="/product/deletePage?product_index=${list.product_index}"> 삭 제 </a></td>
 					<td><input type="hidden" name="product_index" value="${list.product_index}" readonly></td>
 				</tr>
 				</form>

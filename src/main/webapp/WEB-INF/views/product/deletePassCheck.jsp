@@ -10,10 +10,10 @@
   <div class="col-sm-8 text-center" style="border:1px solid black;margin-top:30px;padding:30px;">
   		<p>상품을 삭제 하시겠습까?<br/></p>
   		<br/>
-  	<form method="get" action="/product/ProductUpdate?product_index="${list.product_index}">	
+  	<form method="post" action="/product/delete">	
   		<div class="col-sm-4"></div>
   		<div class="col-sm-4">
-  		<input type="hidden" name="product_index" value="${list.product_index}"/>
+  		<input type=hidden name="product_index" value="${index}"/>
   		<input type="password" class="form-control" id="pass">
   		</div>
   		<div class="col-sm-4"></div>
@@ -41,8 +41,6 @@
 				alert("비밀번호가 맞지 않습니다.");
 				return false;
 			}
-			
-			self.location = "/product/delete";
 			
 		})
 	})

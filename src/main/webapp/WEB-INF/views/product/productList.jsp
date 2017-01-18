@@ -21,7 +21,7 @@
 	border-radius: 0;
 	transition: .2s;
 }
-
+ n
 .box:hover, #box:focus {
 	border: 1px solid #333;
 	background-color: #fff;
@@ -34,7 +34,7 @@
 </head>
 <jsp:include page="../include/header.jsp"></jsp:include>
 <body>
-	<table border="1" class="align-center">
+	<table border="1" class="table">
 		<tr>
 			<th>상품 이름</th>
 			<th>가 격</th>

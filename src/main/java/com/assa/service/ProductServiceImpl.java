@@ -32,5 +32,11 @@ public class ProductServiceImpl implements ProductService{
 		dao.productUpdate(vo);
 		
 	}
+
+	@Override
+	public void productDelete(Integer product_index) {
+		// TODO Auto-generated method stub
+		dao.productDelete(product_index);
+	}
 	
 }

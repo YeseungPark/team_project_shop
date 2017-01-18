@@ -57,5 +57,11 @@
   					category_detail=#{category_detail}
   		where 		product_index=#{product_index}		
 	</update>
+	
+	<delete id="productDelete">
+  		delete from 	product
+  		where 			product_index=#{product_index}
+  	</delete>
+  	
   </mapper>
   
