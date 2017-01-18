@@ -131,6 +131,7 @@ $(document).ready(function(){
 							id="myBtn"> Login</span></a></li>
 				</c:when>
 				<c:otherwise>
+					<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
 					<li><a href="/member/myPage"><span
 						class="glyphicon glyphicon-user"> mypage</span></a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-log-out"

@@ -5,9 +5,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
 <meta charset="UTF-8">
-
+<span id="target"></span>
 <hr style="border:2px solid black;"/>
-
 	<div class="col-xs-3">
 		<h4>Call me. 1661-1004</h4>
 		<h6><small>Monday-Friday<br/>

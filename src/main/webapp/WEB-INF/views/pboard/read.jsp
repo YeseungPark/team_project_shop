@@ -6,10 +6,10 @@
 #sideAffix.affix {
     top: 54;
     width: 100%;
-    left:74%;
+    left:73%;
     z-index: 99999 !important;
     background-color:white;
-}
+}​
 </style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <meta charset="UTF-8">
@@ -32,12 +32,31 @@
 		<!-- sidebar (read 페이지 오른쪽) -->
 		<div class="col-md-3" id="sideAffix" data-spy="affix" data-offset-top="197" style="line-height:0px">
 			<h3 style="color:#6d6d6d">${productList.product_name }</h3>
-			<h5>${productList.product_price }</h5>
-			<h6>${productList.product_point }</h6>
+			<h5><fmt:formatNumber value="${productList.product_price }" pattern="₩#,###.##"/></h5>
+			<h6><small>save</small>&nbsp;${productList.product_point }&nbsp;<small>point</small></h6>
+			<pre style="max-width:300px;min-height:300px;">${boardList.content }</pre>
 		</div>
 		<!-- sidebar 끝 -->
+		
 		
 	</div>
 </div>
 
-<jsp:include page="../include/footer.jsp"></jsp:include>
+<script>
+$(function(){
+	var target = $(".target").offset().top;
+	
+	
+	
+	
+	
+	$(window).scroll(function() { 
+		if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+			alert('End of Window'); 
+			} 
+		});​
+
+	
+	
+})
+</script>
