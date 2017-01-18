@@ -81,8 +81,12 @@ public class MemberController {
 		return "/member/update";
 	}
 	@RequestMapping(value="/update",method=RequestMethod.POST)
-	public String updatePOST(MemberVO vo,RedirectAttributes rttr){
+	public String updatePOST(MemberVO vo,RedirectAttributes rttr,HttpServletRequest request){
+		HttpSession session = request.getSession();
+		
 		service.update(vo);
+		
+		session.setAttribute("login", vo);
 		
 		rttr.addFlashAttribute("updateMsg", "success");
 		
