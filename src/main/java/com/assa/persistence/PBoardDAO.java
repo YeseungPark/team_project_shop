@@ -17,5 +17,5 @@ public interface PBoardDAO {
 	public List<ProductVO> listAll(Map<String,Object> map);
 	public List<PBoardVO> listCriteria(Map<String,Object> map);
 	public int countPaging(String category);
-	public ProductVO getProduct(String product_name);
+	public List<ProductVO> getProduct(String product_name);
 }

@@ -35,28 +35,15 @@
 			<h5><fmt:formatNumber value="${productList.product_price }" pattern="₩#,###.##"/></h5>
 			<h6><small>save</small>&nbsp;${productList.product_point }&nbsp;<small>point</small></h6>
 			<pre style="max-width:300px;min-height:300px;">${boardList.content }</pre>
+			<c:forEach items="${ }">
+				<select class="form-control">
+					<option></option>
+					<option></option>
+				</select>
+			</c:forEach>
 		</div>
 		<!-- sidebar 끝 -->
 		
 		
 	</div>
 </div>
-
-<script>
-$(function(){
-	var target = $(".target").offset().top;
-	
-	
-	
-	
-	
-	$(window).scroll(function() { 
-		if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-			alert('End of Window'); 
-			} 
-		});​
-
-	
-	
-})
-</script>

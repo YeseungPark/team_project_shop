@@ -63,7 +63,7 @@ public class PBoardServiceImpl implements PBoardService{
 		return dao.getFile(bp_index);
 	}
 	@Override
-	public ProductVO getProduct(String product_name){
+	public List<ProductVO> getProduct(String product_name){
 		return dao.getProduct(product_name);
 	}
 }

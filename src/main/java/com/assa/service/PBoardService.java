@@ -16,5 +16,5 @@ public interface PBoardService {
 	public List<PBoardVO> listCriteria(Map<String,Object> map);
 	public int countPaging(String category);
 	public List<String> getFile(Integer bp_index);
-	public ProductVO getProduct(String product_name);
+	public List<ProductVO> getProduct(String product_name);
 }
