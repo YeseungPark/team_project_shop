@@ -13,6 +13,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+   <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta charset="UTF-8">
 <style>
 .jumbotron{
@@ -21,7 +23,7 @@
 	margin-left:20px;
 	font-family: 'Raleway', sans-serif;
 }
-.affix {
+#navAffix.affix {
     top: 0;
     width: 100%;
     z-index: 9999 !important;
@@ -114,10 +116,9 @@ $(document).ready(function(){
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
         <li><a href="/product/productList">상품 목록</a></li>
         <li><a href="/product/insert">상품 등록</a></li>
+        <li><a href="/pboard/write">글 등록</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -152,7 +153,7 @@ $(document).ready(function(){
 
 
 
-<nav class="navbar" data-spy="affix" data-offset-top="197">
+<nav class="navbar" id="navAffix" data-spy="affix" data-offset-top="197">
   <ul class="nav navbar-nav">
     <li>
     	<div class="text-center">
@@ -161,9 +162,13 @@ $(document).ready(function(){
 			</button>
 		</div>
     </li>
-    <li><a href="/PBoard/BEST">Best</a></li>
-    <li><a href="/PBoard/top">TOP</a></li>
-    <li><a href="/PBoard/outer">OUTER</a></li>
+    <li><a href="/pboard/BEST">Best</a></li>
+    <li><a href="/pboard/top">TOP</a></li>
+    <li><a href="/pboard/outer">OUTER</a></li>
+    <li><a href="/pboard/outer">DRESS</a></li>
+    <li><a href="/pboard/outer">BOTTOM</a></li>
+    <li><a href="/pboard/outer">SHOES&BAG</a></li>
+    <li><a href="/pboard/outer">ACC</a></li>
   </ul>
 </nav>
 <hr/>
