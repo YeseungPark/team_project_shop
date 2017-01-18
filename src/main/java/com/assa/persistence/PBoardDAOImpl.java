@@ -24,20 +24,24 @@ public class PBoardDAOImpl implements PBoardDAO{
 		session.insert(namespace+".addFile", fullName);
 	}
 	@Override
+	public List<String> getFile(Integer bp_index){
+		return session.selectList(namespace+".getFile",bp_index);
+	}
+	@Override
 	public void create(PBoardVO vo){
 		session.insert(namespace+".create",vo);
 	}
 	@Override
-	public PBoardVO read(Integer board_index){
-		return session.selectOne(namespace+".read",board_index);
+	public PBoardVO read(Integer bp_index){
+		return session.selectOne(namespace+".read",bp_index);
 	}
 	@Override
 	public void update(Map<String,Object> map){
 		session.update(namespace+".update",map);
 	}
 	@Override
-	public void delete(Integer board_index){
-		session.delete(namespace+".delete",board_index);
+	public void delete(Integer bp_index){
+		session.delete(namespace+".delete",bp_index);
 	}
 	@Override
 	public List<ProductVO> listAll(Map<String,Object> map){

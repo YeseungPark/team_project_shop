@@ -15,6 +15,12 @@
 					LAST_INSERT_ID()
 		)
 	</insert>
+	<select id="getFile" resultType="String">
+		select		fileName
+		from		file
+		where		bp_index=#{bp_index}
+		order by	reg_date
+	</select>
 	 <insert id="create">
 	 insert into board_product (
 	 			product_name,product_price,content,thumbnail,category,category_detail

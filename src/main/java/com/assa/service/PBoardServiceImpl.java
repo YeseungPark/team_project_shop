@@ -28,22 +28,23 @@ public class PBoardServiceImpl implements PBoardService{
 		if(files == null) return;
 		
 		for(String fileName:files){
+			fileName = fileName.replaceFirst("s_","");
 			dao.addFile(fileName);
 			System.out.println("==============================================================================");
 			System.out.println(fileName);
 		}
 	}
 	@Override
-	public PBoardVO read(Integer board_index){
-		return dao.read(board_index);
+	public PBoardVO read(Integer bp_index){
+		return dao.read(bp_index);
 	}
 	@Override
 	public void update(Map<String,Object> map){
 		dao.update(map);
 	}
 	@Override
-	public void delete(Integer board_index){
-		dao.delete(board_index);
+	public void delete(Integer bp_index){
+		dao.delete(bp_index);
 	}
 	@Override
 	public List<ProductVO> listAll(Map<String,Object> map){
@@ -56,5 +57,9 @@ public class PBoardServiceImpl implements PBoardService{
 	@Override
 	public int countPaging(String category){
 		return dao.countPaging(category);
+	}
+	@Override
+	public List<String> getFile(Integer bp_index){
+		return dao.getFile(bp_index);
 	}
 }

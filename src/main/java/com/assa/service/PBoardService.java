@@ -9,10 +9,11 @@ import com.assa.domain.ProductVO;
 public interface PBoardService {
 
 	public void create(PBoardVO vo);
-	public PBoardVO read(Integer board_index);
+	public PBoardVO read(Integer bp_index);
 	public void update(Map<String,Object> map);
-	public void delete(Integer board_index);
+	public void delete(Integer bp_index);
 	public List<ProductVO> listAll(Map<String,Object> map);
 	public List<PBoardVO> listCriteria(Map<String,Object> map);
 	public int countPaging(String category);
+	public List<String> getFile(Integer bp_index);
 }
