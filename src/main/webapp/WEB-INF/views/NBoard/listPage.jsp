@@ -47,7 +47,10 @@
 				<!-- /.box-body -->
 
 
-
+				<div class="box-footer">
+					<button type="submit" class="btn btn-warning">Register</button>
+					<button type="submit" class="btn btn-primary">LIST ALL</button>
+				</div>
 
 
 				<div class="text-center">
@@ -83,6 +86,28 @@
 	<!-- /.row -->
 </section>
 <!-- /.content -->
+<script>
+				
+$(document).ready(function(){
+	
+	var formObj = $("form[role='form']");
+	
+	console.log(formObj);
+	
+	$(".btn-warning").on("click", function(){
+		formObj.attr("action", "/NBoard/register");
+		formObj.attr("method", "get");		
+		formObj.submit();
+	});
+	
+		
+	$(".btn-primary").on("click", function(){
+		self.location = "/NBoard/listPage";
+	});
+	
+});
+
+</script>
 
 <form id="jobForm">
 	<input type='hidden' name="page" value=${pageMaker.cri.perPageNum}>

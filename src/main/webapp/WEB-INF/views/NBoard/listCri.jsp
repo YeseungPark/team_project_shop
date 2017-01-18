@@ -81,7 +81,7 @@ $(document).ready(function(){
 	
 		
 	$(".btn-primary").on("click", function(){
-		self.location = "/NBoard/listAll";
+		self.location = "/NBoard/listCri";
 	});
 	
 });

@@ -27,7 +27,7 @@
 						<div class="form-group">
 							<label for="exampleInputEmail1">category</label> <select
 								name="category" required pattern="(0-9){2}"  onChange="">
-								<option value="${NBoardVO.category}">::분류 선택::</option>
+								<option value="${NBoardVO.category}">${NBoardVO.category}</option>
 								<option value="00">상품문의</option>
 								<option value="01">주문/결제문의</option>
 								<option value="02">배송문의</option>
