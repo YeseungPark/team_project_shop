@@ -7,6 +7,7 @@ public class PBoardVO {
 	private int bp_index;
 	private String product_name;
 	private int product_price;
+	private int product_point;
 	private String content;
 	private Timestamp reg_date;
 	private String category;
@@ -39,6 +40,14 @@ public class PBoardVO {
 
 	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
+	}
+		
+	public int getProduct_point() {
+		return product_point;
+	}
+
+	public void setProduct_point(int product_point) {
+		this.product_point = product_point;
 	}
 
 	public String getContent() {

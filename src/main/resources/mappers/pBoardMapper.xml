@@ -23,10 +23,10 @@
 	</select>
 	 <insert id="create">
 	 insert into board_product (
-	 			product_name,product_price,content,thumbnail,category,category_detail
+	 			product_name,product_price,product_point,content,thumbnail,category,category_detail
 	 ) 
 	 values(
-	 			#{product_name},#{product_price},#{content},#{thumbnail}, #{category}, #{category_detail}
+	 			#{product_name},#{product_price},#{product_point},#{content},#{thumbnail}, #{category}, #{category_detail}
 	 )
 	 </insert>
 	
@@ -39,6 +39,14 @@
 		select		*
 		from		product
 		where		product_name=#{product_name}
+	</select>
+	<select id="getProductStock" resultType="int">
+		select		product_stoke
+		from		product
+		where		product_name=#{product_name}
+		and			product_color=#{product_color}
+		and			product_size=#{product_size}
+		
 	</select>
 	
 	 <update id="update">

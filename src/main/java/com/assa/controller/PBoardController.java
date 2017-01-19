@@ -18,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -98,6 +99,25 @@ public class PBoardController {
 	 return savedName;
 	
 	 }
+	
+	@RequestMapping(value="/getProductStock",method=RequestMethod.GET)
+	public @ResponseBody ResponseEntity<Integer> getStock(@RequestParam("product_name") String product_name,
+					@RequestParam("product_color") String product_color,
+					@RequestParam("product_size") String product_size){
+		ResponseEntity<Integer> entity = null;
+		try{
+			ProductVO vo = new ProductVO();
+			vo.setProduct_name(product_name);
+			vo.setProduct_color(product_color);
+			vo.setProduct_size(product_size);
+			
+			entity = new ResponseEntity<>(service.getProductStock(vo),HttpStatus.OK);
+		}catch(Exception e){
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
 	
 	@RequestMapping(value="/read",method=RequestMethod.GET)
 	public String readGET(@RequestParam("bp_index") int bp_index,Model model){

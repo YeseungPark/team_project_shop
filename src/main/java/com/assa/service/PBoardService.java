@@ -17,4 +17,5 @@ public interface PBoardService {
 	public int countPaging(String category);
 	public List<String> getFile(Integer bp_index);
 	public List<ProductVO> getProduct(String product_name);
+	public Integer getProductStock(ProductVO vo);
 }

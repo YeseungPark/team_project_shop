@@ -40,6 +40,10 @@ public class PBoardDAOImpl implements PBoardDAO{
 		return session.selectList(namespace+".getProduct",product_name);
 	}
 	@Override
+	public Integer getProductStock(ProductVO vo){
+		return session.selectOne(namespace+".getProductStock",vo);
+	}
+	@Override
 	public void update(Map<String,Object> map){
 		session.update(namespace+".update",map);
 	}

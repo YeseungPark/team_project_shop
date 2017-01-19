@@ -66,4 +66,8 @@ public class PBoardServiceImpl implements PBoardService{
 	public List<ProductVO> getProduct(String product_name){
 		return dao.getProduct(product_name);
 	}
+	@Override
+	public Integer getProductStock(ProductVO vo){
+		return dao.getProductStock(vo);
+	}
 }

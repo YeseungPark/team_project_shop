@@ -176,6 +176,7 @@ ul{
 <jsp:include page="../include/footer.jsp"></jsp:include>
 <script>
 var map = new Map();
+var point_map = new Map();
 
 function getProduct(){
 	
@@ -187,6 +188,7 @@ function getProduct(){
 			$(data).each(function(){
 				str += '<option value="'+this.product_name+'">'+this.product_name+'</option>';
 				map.set(this.product_name,this.product_price);
+				point_map.set(this.product_name,this.product_point);
 			})
 			$("#product_name").html(str);
 			
@@ -194,7 +196,8 @@ function getProduct(){
 }
 function getPrice(){
 	var product_name = $("#product_name option:selected").val();
-	var str = '<input type="text" value="'+map.get(product_name)+'" name="product_price" class="form-control" readonly/>';
+	var str = '<input type="text" value="'+map.get(product_name)+'" name="product_price" class="form-control" readonly/>'+
+				'<input type="hidden" name="product_point" value="'+point_map.get(product_name)+'" />';
 	$("#product_price_form").html(str);
 }
 
