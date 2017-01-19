@@ -12,6 +12,129 @@
 <title>Insert title here</title>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
+$(function(){
+	
+
+	var pass_regex =  /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+	var phone_regex = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+	
+	var passwordForm = $("#password1");
+	var passcheckForm = $("#passcheck");
+	var phoneForm = $("#phone");
+	
+	
+	passwordForm.focus(function(){
+//		alert("in");
+		passwordForm.css("border","1px solid black");
+	})
+	passcheckForm.focus(function(){
+		passcheckForm.css("border","1px solid black");
+	})
+	phoneForm.focus(function(){
+		phoneForm.css("border","1px solid black");
+	}) 
+	
+	
+	
+		passwordForm.blur(function(){
+//			alert("hi");
+			var password = $("#password1").val();
+			if(password == null || password == ""){
+				passwordForm.css("border","1px solid red");
+				return;
+			}
+			else if(!pass_regex.test(password)){
+				passwordForm.css("border","1px solid red");
+				return;
+			}else{
+				passwordForm.css("border","1px solid #51ba4e");
+			}		
+		})
+		
+		passcheckForm.blur(function(){
+			var password = $("#password1").val();
+			var passcheck = $("#passcheck").val();
+
+			if(passcheck == null || password == ""){
+				$("#passcheck").attr("placeholder","비밀번호가 일치하지 않습니다.");
+				passcheckForm.css("border","1px solid red");
+				return;
+			}
+			else if(password != passcheck){
+				$("#passcheck").attr("placeholder","비밀번호가 일치하지 않습니다.");
+				passcheckForm.css("border","1px solid red");
+				return;
+			}else{
+				passcheckForm.css("border","1px solid #51ba4e");
+			}
+		})
+		phoneForm.blur(function(){
+			var phone = $("#phone").val();
+			
+			if(phone == null || phone == ""){
+				$("#phone_alam").html("전화번호를 입력해주세요.");
+				phoneForm.css("border","1px solid red");
+				return;
+			}
+			else if(!phone_regex.test(phone)){
+				$("#phone_alam").html("전화번호 양식에 맞지 않습니다.");
+				phoneForm.css("border","1px solid red");
+				return;
+			}else{
+				phoneForm.css("border","1px solid #51ba4e");
+			}
+		}) 
+		
+		
+		$("#updateBtn").click(function(){
+			var password = $("#password1").val();
+			var passcheck = $("#passcheck").val();
+			var phone = $("#phone").val();
+			var post_code = $("#post_code").val();
+			var address1 = $("#address1").val();
+			var address2 = $("#address2").val();
+			
+			if(password == null || password == ""){
+				alert("가입 양식을 다시 확인해주세요.");
+				return;
+			}
+			if(!pass_regex.test(password)){
+				alert("가입 양식을 다시 확인해주세요.");
+				return;
+			}
+			if(passcheck == null || password == ""){
+				alert("가입 양식을 다시 확인해주세요.");
+				return;
+			}
+			if(password != passcheck){
+				alert("가입 양식을 다시 확인해주세요.");
+				return;
+			}
+			if(phone == null || phone == ""){
+				alert("가입 양식을 다시 확인해주세요.");
+				return;
+			}
+			if(!phone_regex.test(phone)){
+				alert("가입 양식을 다시 확인해주세요.");
+				return;
+			}
+			if(post_code == null || post_code == ""){
+				alert("주소를 다시 입력해주세요.");
+				return;
+			}
+			if(address1 == null || address1 == ""){
+				alert("주소를 다시 입력해주세요.");
+				return;
+			}
+			if(address2 == null || address2 == ""){
+				alert("주소를 다시 입력해주세요.");
+				return;
+			}
+			$("#updateForm").submit();
+		})
+})
+</script>
+<script>
     function daumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -55,6 +178,7 @@
         }).open();
     }
 </script>
+
 </head>
 <body>
 <jsp:include page="../include/header.jsp"></jsp:include>
@@ -62,7 +186,7 @@
 	<div class="text-center">
 		<h3>회원 정보 수정</h3>
 	</div>
-	<form method="post" action="/member/update">
+	<form method="post" action="/member/update" id="updateForm">
 	
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
@@ -73,7 +197,7 @@
 	  <div class="col-xs-3"></div>
 	  <div class="input-group col-xs-6">
 	    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-	    <input id="password" type="password" class="form-control input-lg" name="password" placeholder="비밀번호">
+	    <input id="password1" type="password" class="form-control input-lg" name="password" placeholder="비밀번호">
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
@@ -109,7 +233,7 @@
 	  </div><div class="col-xs-3"></div><br/>
 	  
 	  <div class="col-xs-3"></div>
-	  <button type="submit" class="btn btn-primary btn-lg col-xs-6">수정</button>
+	  <button type="button" class="btn btn-primary btn-lg col-xs-6" id="updateBtn">수정</button>
 	
 	</form>
 </div>

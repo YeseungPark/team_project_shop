@@ -5,9 +5,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
 <meta charset="UTF-8">
-
+<span id="target"></span>
 <hr style="border:2px solid black;"/>
-
 	<div class="col-xs-3">
 		<h4>Call me. 1661-1004</h4>
 		<h6><small>Monday-Friday<br/>
@@ -23,8 +22,8 @@
 	<div class="col-xs-3">
 		<h4>Customer service</h4>
 		<h6>
-			<a href="#">Notice</a><br/>
-			<a href="#">Q&A</a><br/>
+			<a href="/NBoard/listPage">Notice</a><br/>
+			<a href="/NBoard/listPage">Q&A</a><br/>
 			<a href="/reply">reply</a><br/>
 		</h6>
 	</div>

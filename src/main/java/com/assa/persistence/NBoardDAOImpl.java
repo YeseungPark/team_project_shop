@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.assa.domain.Criteria;
 import com.assa.domain.NBoardVO;
 
 @Repository
@@ -40,6 +41,20 @@ public class NBoardDAOImpl implements NBoardDAO {
 	@Override
 	public List<NBoardVO> listAll() throws Exception {
 		return session.selectList(namespace + ".listAll");
+	}
+
+	@Override
+	public List<NBoardVO> listPage(int page) throws Exception {
+
+		page = (page - 1) * 10;
+
+		return session.selectList(namespace + ".listPage", page);
+	}
+
+	@Override
+	public List<NBoardVO> listCriteria(Criteria cri) throws Exception {
+
+		return session.selectList(namespace+".listCriteria",cri);
 	}
 
 }

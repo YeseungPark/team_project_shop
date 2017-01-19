@@ -12,7 +12,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+   <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta charset="UTF-8">
 <style>
 .jumbotron{
@@ -21,7 +24,7 @@
 	margin-left:20px;
 	font-family: 'Raleway', sans-serif;
 }
-.affix {
+#navAffix.affix {
     top: 0;
     width: 100%;
     z-index: 9999 !important;
@@ -114,10 +117,9 @@ $(document).ready(function(){
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
         <li><a href="/product/productList">상품 목록</a></li>
         <li><a href="/product/insert">상품 등록</a></li>
+        <li><a href="/pboard/write">글 등록</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -130,6 +132,7 @@ $(document).ready(function(){
 							id="myBtn"> Login</span></a></li>
 				</c:when>
 				<c:otherwise>
+					<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
 					<li><a href="/member/myPage"><span
 						class="glyphicon glyphicon-user"> mypage</span></a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-log-out"
@@ -152,7 +155,7 @@ $(document).ready(function(){
 
 
 
-<nav class="navbar" data-spy="affix" data-offset-top="197">
+<nav class="navbar" id="navAffix" data-spy="affix" data-offset-top="197">
   <ul class="nav navbar-nav">
     <li>
     	<div class="text-center">
@@ -161,9 +164,13 @@ $(document).ready(function(){
 			</button>
 		</div>
     </li>
-    <li><a href="/PBoard/BEST">Best</a></li>
-    <li><a href="/PBoard/top">TOP</a></li>
-    <li><a href="/PBoard/outer">OUTER</a></li>
+    <li><a href="/pboard/BEST">Best</a></li>
+    <li><a href="/pboard/top">TOP</a></li>
+    <li><a href="/pboard/outer">OUTER</a></li>
+    <li><a href="/pboard/outer">DRESS</a></li>
+    <li><a href="/pboard/outer">BOTTOM</a></li>
+    <li><a href="/pboard/outer">SHOES&BAG</a></li>
+    <li><a href="/pboard/outer">ACC</a></li>
   </ul>
 </nav>
 <hr/>
@@ -179,10 +186,16 @@ $(document).ready(function(){
 
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel"><strong>Assa Company</strong></h4>
+					<h2 class="modal-title" id="myModalLabel"><strong>Wassa Company</strong></h2>
 				</div>
 
-				<div class="modal-body">
+				<div class="modal-body" >
+				
+					<div style="margin:10px;">
+						<a href="/member/myPage">MY PAGE</a><BR>
+						<a href="#">CART</a><BR>
+					
+					</div>
 					
 					
 					<!-- accordion -->
@@ -190,40 +203,87 @@ $(document).ready(function(){
 				    <div class="panel panel-default">
 				      <div class="panel-heading">
 				        <h4 class="panel-title">
-				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Collapsible Group 1</a>
+				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">CLOTHES</a>
 				        </h4>
 				      </div>
 				      <div id="collapse1" class="panel-collapse collapse in">
-				        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-				        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+				        <div class="panel-body">
+							<div>
+								<a href="#">TOP</a><BR>
+								<a href="#">OUTER</a><BR>
+								<a href="#">DRESS</a><BR>
+								<a href="#">BOTTOM</a><BR>
+							
+							</div>
+						</div>
 				      </div>
 				    </div>
+				    
+				    
 				    <div class="panel panel-default">
 				      <div class="panel-heading">
 				        <h4 class="panel-title">
-				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Collapsible Group 2</a>
+				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">ACC</a>
 				        </h4>
 				      </div>
 				      <div id="collapse2" class="panel-collapse collapse">
-				        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-				        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+				        <div class="panel-body">
+							<div>
+								<a href="#">SHOES&BAG</a><BR>
+								<a href="#">ACCESORY</a><BR>							
+							</div>
+						</div>
 				      </div>
 				    </div>
+				    
+				    
 				    <div class="panel panel-default">
 				      <div class="panel-heading">
 				        <h4 class="panel-title">
-				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Collapsible Group 3</a>
+				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">BOARD</a>
 				        </h4>
 				      </div>
 				      <div id="collapse3" class="panel-collapse collapse">
-				        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-				        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+				        <div class="panel-body">
+							<div>
+								<a href="#">NOTICE</a><BR>
+								<a href="#">Q&A</a><BR>							
+							</div>
+						</div>
 				      </div>
 				    </div>
-				  </div> 
+				    
+				    <div class="panel panel-default">
+				      <div class="panel-heading">
+				        <h4 class="panel-title">
+				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Banking account</a>
+				        </h4>
+				      </div>
+				      <div id="collapse4" class="panel-collapse collapse">
+				        <div class="panel-body">
+							<div>
+								<p>(주)와싸앤컴퍼니</p>
+								<p>우리 1002-1225-561561</p>
+								<p>신한 756-555-4516560</p>
+								<p>국민 76230204-15-1555</p>
+								<p>농협 110-2465-5645166</p>
+							</div>
+						</div>
+				      </div>
+				    </div>
+				    
+				    
+				  </div> <!-- arccodion 끝 -->
+					
+					
+				    
+				    <div>
+						<h4>call me. 1661-8705</h4>
+						<p><small>Monday-Friday</small></p>
+						<p><small>open 11am / break 1pm-2pm / close 6pm</small></p>
+					</div>
+				    
+				    
 					
 					
 				</div>

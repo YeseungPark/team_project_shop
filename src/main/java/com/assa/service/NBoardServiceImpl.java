@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.assa.domain.Criteria;
 import com.assa.domain.NBoardVO;
 import com.assa.persistence.NBoardDAO;
 
@@ -38,6 +39,11 @@ public class NBoardServiceImpl implements NBoardService {
 	@Override
 	public List<NBoardVO> listAll() throws Exception {
 		return dao.listAll();
+	}
+
+	@Override
+	public List<NBoardVO> listCriteria(Criteria cri) throws Exception {
+		return dao.listCriteria(cri);
 	}
 
 }

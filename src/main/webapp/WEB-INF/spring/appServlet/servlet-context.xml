@@ -21,7 +21,18 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+<<<<<<< HEAD
 	<context:component-scan base-package="com.assa.controller" />
+=======
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760"></beans:property>
+	</beans:bean>
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="C:/sts-bundle/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/Assa/resources/FileUpload">
+		</beans:constructor-arg>
+	</beans:bean>
+	
+>>>>>>> 9d4a54f92217f5e71e8616af6d39d0d15595f989
 	<beans:bean id="loginInterceptor" class="com.assa.interceptor.LoginInterceptor"></beans:bean>
 	
 	<interceptors>

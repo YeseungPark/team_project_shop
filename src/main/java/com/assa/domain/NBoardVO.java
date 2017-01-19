@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NBoardVO {
 
+	private Integer RNUM;
 	private Integer bn_index;
 	private String nick;
 	private String subject;
@@ -12,6 +13,14 @@ public class NBoardVO {
 	private Date reg_date;
 	private String category;
 	private String name;
+
+	public Integer getRNUM() {
+		return RNUM;
+	}
+
+	public void setRNUM(Integer rNUM) {
+		RNUM = rNUM;
+	}
 
 	public Integer getBn_index() {
 		return bn_index;

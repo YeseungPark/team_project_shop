@@ -5,7 +5,7 @@
 
 <mapper namespace="com.assa.mapper.NBoardMapper">
 	<insert id="create">
-		insert into board_normal (
+		INSERT INTO board_normal (
 		nick
 		,subject
 		,content
@@ -21,37 +21,44 @@
 	</insert>
 
 	<select id="read" resultType="com.assa.domain.NBoardVO">
-		SELECT b.bn_index,b.nick, b.subject,
-		b.content, b.password , b.reg_date , c.name category
-		FROM board_normal
-		b
+		SELECT b.bn_index,b.nick,
+		b.subject
+		,b.content
+		,b.password
+		,b.reg_date
+		,c.name category
+		FROM
+		board_normal b
 		INNER JOIN nboard_category c
 		ON b.category = c.code
-		where bn_index
-		=
+		WHERE bn_index =
 		#{bn_index}
 	</select>
 
 	<update id="update">
-		update board_normal
+		UPDATE board_normal
 		SET
 		subject = #{subject}
-		,content =
-		#{content}
+		,content = #{content}
 		,category = #{category}
-		WHERE
-		bn_index
-		= #{bn_index}
+		WHERE bn_index= #{bn_index}
 	</update>
 
 	<delete id="delete">
-		delete from board_normal where bn_index
-		= #{bn_index}
+		DELETE FROM board_normal
+		WHERE bn_index = #{bn_index}
 	</delete>
 
 	<select id="listAll" resultType="com.assa.domain.NBoardVO">
  <![CDATA[
-		SELECT b.bn_index , b.nick, b.subject, b.content, b.password , b.reg_date , c.name category
+		SELECT 
+			b.bn_index 
+			, b.nick
+			, b.subject
+			, b.content
+			, b.password 
+			, b.reg_date 
+			, c.name category
 		FROM board_normal b
 		INNER JOIN nboard_category c
 		ON b.category = c.code
@@ -59,5 +66,40 @@
 		ORDER BY bn_index DESC , reg_date DESC;
  ]]>
 	</select>
+
+	<select id="listPage" resultType="com.assa.domain.NBoardVO">
+ <![CDATA[
+		SELECT @ROWNUM := @ROWNUM + 1 AS RNUM
+			, b.bn_index
+			, b.subject
+			, b.content
+			, b.nick 
+			, b.reg_date 
+			, c.name category
+		FROM board_normal b, (select @ROWNUM := 0) A , nboard_category c
+		WHERE b.category = c.code
+		ORDER BY rnum DESC
+		LIMIT  #{page},10;
+ ]]>
+	</select>
+
+	<select id="listCriteria" resultType="com.assa.domain.NBoardVO">
+ <![CDATA[
+		SELECT @ROWNUM := @ROWNUM + 1 AS rnum
+			, b.bn_index
+			, b.subject
+			, b.content
+			, b.nick 
+			, b.reg_date 
+			, c.name category
+		FROM board_normal b, (select @ROWNUM := 0) A , nboard_category c
+		WHERE b.category = c.code
+		ORDER BY rnum DESC
+		LIMIT  #{pageStart},#{perPageNum};
+ ]]>
+	</select>
+
+
+
 </mapper>
   
