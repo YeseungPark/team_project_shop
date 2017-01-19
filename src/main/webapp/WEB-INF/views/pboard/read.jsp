@@ -29,6 +29,10 @@
 					<img src="/resources/FileUpload/${file }" alt="img" style="max-width:100%" /><br/>
 				</div>
 			</c:forEach>
+			<jsp:include page="../reply/replyTest.jsp">
+				<jsp:param value="${boardList.bp_index }" name="bp_index"/>
+				<jsp:param value="${boardList.category }" name="category"/>
+			</jsp:include>
 		</div>
 		<!-- 상품 이미지 끝 -->
 		

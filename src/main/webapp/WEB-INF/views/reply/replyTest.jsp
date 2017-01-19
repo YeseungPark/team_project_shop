@@ -4,14 +4,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+
 	
 <meta charset="UTF-8">
 
-<jsp:include page="../include/header.jsp"></jsp:include>
-
-<div class="container" ng-app="myApp" ng-controller="myCtrl">
+<div ng-app="myApp" ng-controller="myCtrl">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="box box-success">
@@ -49,7 +46,6 @@
 				  </div>
 				  
 				</li>
-				<div>
 			</ul>
 			   
 			<div class='text-center'>
@@ -63,12 +59,13 @@
 	</div><!-- row -->
 </div>
 
-<jsp:include page="../include/footer.jsp"></jsp:include>
 <script>
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http) {
-    $("#replyAddBtn").click(function(){
+	getPageList(1);
+	$("#replyAddBtn").click(function(){
     	var content = $("#newReplyText").val();
+
     	$http({
         	method : 'POST',
         	url : '/replies/regist',
@@ -76,10 +73,10 @@ app.controller('myCtrl', function($scope, $http) {
         		   'Content-Type': 'application/json'
         	},
         	data: JSON.stringify({
-        		board_index:10,
+        		board_index:'${param.bp_index}',
         		nick:'${login.nick}',
         		content:content,
-        		category:'outer'
+        		category:'${param.category}'
         	})
         }).then(function successCallback(response) {
         		getPageList(1); 
@@ -109,9 +106,9 @@ app.controller('myCtrl', function($scope, $http) {
         		   "X-HTTP-Method-Override":"DELETE"
         	},
         	data: JSON.stringify({
-        		board_index:10,
+        		board_index:'${param.bp_index}',
 				reply_index:reply_index,
-        		category:'outer'
+        		category:'${param.category}'
         	})
         }).then(function successCallback(response) {
         		getPageList(1); 
@@ -124,7 +121,6 @@ app.controller('myCtrl', function($scope, $http) {
     	var reply = $(this);
     	var reply_index = reply.attr("data-rno");
     	var content = $('#'+reply_index).val();
-    	var category = 'outer';
     	
     	$http({
         	method : 'PUT',
@@ -134,10 +130,10 @@ app.controller('myCtrl', function($scope, $http) {
         		   "X-HTTP-Method-Override":"PUT"
         	},
         	data: JSON.stringify({
-        		board_index:10,
+        		board_index:'${param.bp_index}',
 				reply_index:reply_index,
         		content:content,
-        		category:'outer'
+        		category:'${param.category}'
         	})
         }).then(function successCallback(response) {
         		getPageList(1); 
@@ -151,7 +147,7 @@ app.controller('myCtrl', function($scope, $http) {
     	
     	var str="";
     	
-    	$http.get("/replies/outer/10/"+page)
+    	$http.get("/replies/${param.category}/${param.bp_index}/"+page)
         .then(function(response) {
             $scope.replies = response.data.list;   
             $scope.pageMaker = response.data.pageMaker;
